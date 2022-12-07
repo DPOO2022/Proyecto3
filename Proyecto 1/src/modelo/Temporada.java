@@ -98,23 +98,37 @@ public class Temporada {
 		for (int i=0; i<nRanking;i++) {
 			EquipoFantasia equipo= rankingEquiposFantasia.get(i);
 			
-			for (int j=0; j<equipo.getPuntosJornada().size()-1; j++) {
+			for (int j=0; j<equipo.getPuntosJornada().size(); j++) {
 				dts.addValue(equipo.getPuntosJornada().get(j),equipo.getNombre(),""+(j+1));
 			}
 		}
-		JFreeChart graficoLineas = ChartFactory.createLineChart("Evolucion de los mejores equipos"
+		JFreeChart graficoEquipos = ChartFactory.createLineChart("Evolucion de los mejores equipos"
 				, "Puntos" , "Jornadas" , dts, PlotOrientation.VERTICAL, true, false, false);
-		return graficoLineas;
+		return graficoEquipos;
 	}
-	public void graficoPuntosJugadoresEquipo(Participante usuario) {
-		ArrayList<Jugador> jugadores =usuario.getEquipo().getJugadores();
-		
+	/**
+	 * Genera una grafica de los 10 jugadores con mas puntos en la temporada
+	 */
+	public JFreeChart graficoJugadoresMasPuntosTemporada() {
 		DefaultCategoryDataset dts = new DefaultCategoryDataset();
-		
-		for (int i = 0; i<jugadores.size(); i++)
-			  dts.addValue(jugadores.get(i).getPuntosTotales(), "Puntos Totales", jugadores.get(i).getNombre());
-
-		JFreeChart chart = ChartFactory.createBarChart("Aporte de jugadores en la temporada" , "Puntos" , "Equipos" , dts);
-		
+		for (int i=0; i<10;i++) {
+			Jugador jugador= rankingJugadores.get(i);
+			dts.addValue(jugador.getPuntosTotales(), jugador.getNombre(), ""+i);
+			}
+		JFreeChart graficoJugadores = ChartFactory.createBarChart("Jugadores con mas puntos en la temporada"
+				, "Puntos", "Jugadores", dts);
+		return graficoJugadores;
+	}
+	public JFreeChart graficoJugadoresMasPuntosEquipo(EquipoFantasia e1) {
+		DefaultCategoryDataset dts = new DefaultCategoryDataset();
+		for (int i=0; i<e1.getJugadores().size();i++) {
+			Jugador jugador=e1.getJugadores().get(i);
+			for (int j=0; j<jugador.getPuntosJornada().size(); j++) {
+				dts.addValue(jugador.getPuntosJornada().get(j),jugador.getNombre(),""+(j+1));
+			}
+		}
+		JFreeChart graficoJugadoresEquipo = ChartFactory.createLineChart("Evolucion jugadores de un equipo"
+				, "Puntos" , "Jornadas" , dts, PlotOrientation.VERTICAL, true, false, false);
+		return graficoJugadoresEquipo;
 	}
 }

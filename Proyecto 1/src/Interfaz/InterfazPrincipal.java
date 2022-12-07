@@ -317,9 +317,13 @@ public class InterfazPrincipal extends JFrame{
         fr.setVisible(true);
 	}
 	public void mostrarJugadoresMayorAporte() {
-		
+		ChartFrame fr = new ChartFrame("Evolucion de los mejores equipos", app.mostrarGraficoJugadoresMasPuntosTemporada());
+        fr.pack();
+        fr.setVisible(true);
 	}
 	public void mostrarJugadoresMasPuntosUnEquipo() {
-		
+		ChartFrame fr = new ChartFrame("Evolucion de los mejores equipos", app.mostrarJugadoresMasPuntosEquipo());
+        fr.pack();
+        fr.setVisible(true);
 	}
 }

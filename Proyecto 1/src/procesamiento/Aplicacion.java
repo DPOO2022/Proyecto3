@@ -620,5 +620,14 @@ public class Aplicacion {
 	public JFreeChart mostrarGraficoComparacionPuntosEquipos() {
 		return temporadaActual.graficoComparacionEquipos(5);
 	}
+	public JFreeChart mostrarGraficoJugadoresMasPuntosTemporada() {
+		return temporadaActual.graficoJugadoresMasPuntosTemporada();
+	}
+	public JFreeChart mostrarJugadoresMasPuntosEquipo() {
+		//Solucion provisonal: se va a pasar por parametro el mejor equipo de fantasia
+				//de la temporada
+		EquipoFantasia equipo = temporadaActual.getRankingEquiposFantasia().get(1);
+		return temporadaActual.graficoJugadoresMasPuntosEquipo(equipo);
+	}
 	
 }
