@@ -52,7 +52,6 @@ public class InterfazPrincipal extends JFrame{
         }
         vInicio = new VentanaInicio(this);
 	}
-
 	public int iniciarSesion(String usuario, String contrasena) {
 		
 		int resp = app.iniciarSesion(usuario, contrasena);
@@ -69,7 +68,6 @@ public class InterfazPrincipal extends JFrame{
 			if (this.app.getUsuarioActivo().getClass().getName().equals("modelo.Participante")) {
 				if(temporadaConfigurada) {
 					if(((Participante)this.app.getUsuarioActivo()).getEquipos()!=null) {
-						//this.app.organizarJugadoresEquipo();
 						vUsuario = new VentanaUsuario(this);
 					}
 					else {
@@ -88,7 +86,6 @@ public class InterfazPrincipal extends JFrame{
 		
 		return resp;
 	}
-
 	public int crearUsuario(String usuario, String contrasena) {
 		int resp = app.crearCuenta(usuario, contrasena);
 		if (resp == 1){
@@ -107,7 +104,7 @@ public class InterfazPrincipal extends JFrame{
 	public void crearEquipo(ArrayList<Jugador>equipo, String nombreEquipo) {
 		int resp = app.crearEquipoV2(equipo, nombreEquipo);
 		if (resp == 0) {
-			JOptionPane.showMessageDialog(this, "Su equipo se ha creado exitosamente, su nuevo saldo es de: $" + ((Participante)this.app.getUsuarioActivo()).getEquipoActivo().getPresupuesto(),"",JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Su equipo se ha creado exitosamente","",JOptionPane.INFORMATION_MESSAGE);
 			if(vUsuario == null) {
 				vUsuario = new VentanaUsuario(this);
 			}
@@ -147,7 +144,6 @@ public class InterfazPrincipal extends JFrame{
     		JOptionPane.showMessageDialog(this, "No sé permite crear equipos en esta fecha, intente de nuevo el día siguiente al último partido de la jornada.","Error",JOptionPane.ERROR_MESSAGE);
 		}
 	}
-
 	public int CambiarAlineacion(ArrayList<String> seleccion) {
 		int resp = this.app.cambiarAlineacionV2(seleccion);
 		if(resp == 1||resp == 3) {
@@ -164,7 +160,6 @@ public class InterfazPrincipal extends JFrame{
 		}
 		return resp;
 	}
-
 	public int cambiarCapitan(ArrayList<String> seleccion) {
 		int resp = this.app.cambiarCapitanV2(seleccion);
 		if(resp == 1) {
@@ -181,7 +176,6 @@ public class InterfazPrincipal extends JFrame{
 		}
 		return resp;
 	}
-	
 	public int cargarConfiguracionTemp(String rutaJugadores, String rutaPartidos) {
 		int resp = this.app.cargarConfiguracionTemporada(rutaJugadores, rutaPartidos);
 		if (resp == 3) {
@@ -199,14 +193,10 @@ public class InterfazPrincipal extends JFrame{
     	}
 		return resp;
 	}
-	
 	public int cargarResulPartido(String rutaPartido) {
-		//falta verficar los casos de los enteros de la respuesta
-		
 		int resp = this.app.cargarResultadoPartido(rutaPartido);
 		return resp;
 	}
-
 	public int venderJugador(ArrayList<String>seleccion) {
 		int resp = this.app.venderJugadorV2(seleccion);
 		if(resp == 1) {
@@ -223,15 +213,12 @@ public class InterfazPrincipal extends JFrame{
 		}
 		return resp;
 	}
-
 	public void abrirComprarJugador() {
 		vComprar = new VentanaComprar(this);
 	}
-
 	public void verEtadisticas() {
 		vEstadisticas = new VentanaEstadisticas(this);
 	}
-
 	public void comprarJugador(ArrayList<Jugador> jugadoresComprar) {
 		int resp = this.app.comprarJugadorV2(jugadoresComprar);
 		if (resp == 0) {
@@ -275,29 +262,21 @@ public class InterfazPrincipal extends JFrame{
     		JOptionPane.showMessageDialog(this, "El Jugador seleccionado ya hace parte de su equipo, por favor seleccione otro","Error",JOptionPane.ERROR_MESSAGE);
 		}
 	}
-
 	public void mostrarEstadisticasEquipo() {
 		this.vEstEquipo = new VentanaEstadisticaEquipo(this, ((Participante)this.app.getUsuarioActivo()).getEquipoActivo());
-		
 	}
-
 	public void mostrarEstadisticasJornada() {
 		this.vEstJornada = new VentanaEstadisticaJornada(this);
-		
 	}
-
 	public void mostrarEstadisticasTemporada() {
 		this.vEstTemporada = new VentanaEstadisticaTemporada(this);
-		
 	}
-
 	public void cerrarSesionAdmin() {
 		this.app.cerrarSesion();
 		this.vAdministrador.dispose();
 		JOptionPane.showMessageDialog(this, "Su sesión se ha cerrado.","",JOptionPane.INFORMATION_MESSAGE);
 		this.vInicio = new VentanaInicio(this);
 	}
-
 	public void borrarTemporada() {
 		this.app.borrarArchivosTemporada();
 		JOptionPane.showMessageDialog(this, "Se ha eliminado la información de la temporada.","",JOptionPane.INFORMATION_MESSAGE);
@@ -329,49 +308,9 @@ public class InterfazPrincipal extends JFrame{
 	public void mostrarJugadoresMasPuntosUnEquipo() {
 		
 	}
-
-	public void crearEquipoV2(ArrayList<Jugador>equipo, String nombreEquipo) {
-		int resp = app.crearEquipoV2(equipo, nombreEquipo);
-		if (resp == 0) {
-			JOptionPane.showMessageDialog(this, "Su equipo se ha creado exitosamente, su nuevo saldo es de: $" + ((Participante)this.app.getUsuarioActivo()).getEquipoActivo().getPresupuesto(),"",JOptionPane.INFORMATION_MESSAGE);
-			vUsuario = new VentanaUsuario(this);
-		}
-		else if(resp==1) {
-			JOptionPane.showMessageDialog(this, "Error: Ya existe un equipo, para crear un nuevo equipo, elimine el anterior","Error",JOptionPane.ERROR_MESSAGE);
-    	}
-    	else if(resp==2) {
-    		JOptionPane.showMessageDialog(this, "Error: Numero de arqueros. Recuerde: Debe seleccionar 15 jugadores (2 arqueros, 5 defensores, 5 mediocampistas y 3 delanteros)","Error",JOptionPane.ERROR_MESSAGE);
-    	}
-    	else if(resp==3) {
-    		JOptionPane.showMessageDialog(this, "Error: Numero de defensas. Recuerde: Debe seleccionar 15 jugadores (2 arqueros, 5 defensores, 5 mediocampistas y 3 delanteros)","Error",JOptionPane.ERROR_MESSAGE);
-    	}
-    	else if(resp==4) {
-    		JOptionPane.showMessageDialog(this, "Error: Numero de mediocampistas. Recuerde: Debe seleccionar 15 jugadores (2 arqueros, 5 defensores, 5 mediocampistas y 3 delanteros)","Error",JOptionPane.ERROR_MESSAGE);
-    	}
-    	else if(resp==5) {
-    		JOptionPane.showMessageDialog(this, "Error: Numero de delanteros. Recuerde: Debe seleccionar 15 jugadores (2 arqueros, 5 defensores, 5 mediocampistas y 3 delanteros)","Error",JOptionPane.ERROR_MESSAGE);
-    	}
-    	else if(resp==6) {
-    		JOptionPane.showMessageDialog(this, "Error: Saldo insuficiente","Error",JOptionPane.ERROR_MESSAGE);
-    	}
-    	else if(resp==7||resp == 9) {
-    		JOptionPane.showMessageDialog(this, "Error: Debe seleccionar 15 jugadores para crear el equipo.","Error",JOptionPane.ERROR_MESSAGE);	
-    	}
-    	else if(resp == 10) {
-    		JOptionPane.showMessageDialog(this, "Debe ingresar un nombre para su equipo","Error",JOptionPane.ERROR_MESSAGE);
-    	}
-    	else if(resp == 11) {
-    		JOptionPane.showMessageDialog(this, "Debe seleccionar 15 jugadores diferentes","Error",JOptionPane.ERROR_MESSAGE);
-    	}
-    	else if (resp== 4) {
-    		JOptionPane.showMessageDialog(this, "No sé permite crear equipos en esta fecha, intente de nuevo el día siguiente al último partido de la jornada.","Error",JOptionPane.ERROR_MESSAGE);
-		}
-	}
-
 	public void crearNuevoEquipo() {
 		this.vCrear = new VentanaCrearEquipo(this);
 	}
-
 	public void setEquipoSeleccionado(EquipoFantasia equipo) {
 		this.app.setEquipoSeleccionado(equipo);
 	}

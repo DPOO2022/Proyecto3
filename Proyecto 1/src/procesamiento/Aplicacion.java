@@ -70,11 +70,6 @@ public class Aplicacion {
 					if (this.participantes.get(i).getContraseña().equals(clave)) {
 						resp = 0;
 						this.usuarioActivo = this.participantes.get(i);
-						//File archivoEquipo = new File ("data/equipos/"+this.usuarioActivo.getNombreUsuario()+".json");
-						/*
-						 * if (archivoEquipo.exists()) { cargarEquipoParticipanteActivo(archivoEquipo);
-						 * }
-						 */
 					}
 				}
 			}
@@ -119,35 +114,13 @@ public class Aplicacion {
 		Jornada jornada = this.temporadaActual.getJornadas().get(numJornada-1);
 		return jornada.mejorJugadorJornada();
 	}
-	public EquipoFantasia mejorEquipoActual() { //Si es el mejor equipo de fantasia de la temporada actual esto esta bien, si no, esta mal
-		/*
-		 * ArrayList<EquipoFantasia> equiposTemporadaActual=new
-		 * ArrayList<EquipoFantasia>(); EquipoFantasia mejorEquipo=null; for (int
-		 * i=0;i<participantes.size();i++) {
-		 * equiposTemporadaActual.add(participantes.get(i).getEquipo()); } for (int
-		 * i=0;i<equiposTemporadaActual.size();i++) {
-		 * if(equiposTemporadaActual.get(i).getPuntosTotales()>mejorEquipo.
-		 * getPuntosTotales()) { mejorEquipo=equiposTemporadaActual.get(i); } } return
-		 * mejorEquipo;
-		 */
-		
+	public EquipoFantasia mejorEquipoActual() { 	
 		return this.temporadaActual.mejorEquipoFantasiaTemporada();
 	  }
 	public Jugador mejorJugadorActual() {
 		return this.temporadaActual.mejorJugadorTemporada();
 	}
-	public int crearEquipo(String[] jugadoresSeleccionados, String nombreEquipo) {
-		int resp = 0;
-	
-		ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
-		for (int i = 0; i<jugadoresSeleccionados.length;i++) {
-			jugadores.add(this.temporadaActual.getJugadores().get(Integer.parseInt(jugadoresSeleccionados[i])-1));
-		}
-		resp = ((Participante) usuarioActivo).crearEquipo(jugadores, nombreEquipo, this.temporadaActual.getJornadas().size(),this.presupuestoInicial);
-		return resp;
-	}
 	public double consultarPuntajeJugador(Jugador jugador) {
-		// Suponiendo que entra por parametro un jugador y que se consultan los puntos totales
 		return jugador.getPuntosTotales();
 	}
 	public int cargarParticipantes() {
@@ -261,23 +234,15 @@ public class Aplicacion {
 			}
 		}
 	}
-	
-	public int guardarEquipo() {
-		//loader.guardarEquipo(((Participante)this.usuarioActivo).getEquipo(), ((Participante)this.usuarioActivo).getNombreUsuario());
-		loader.guardarParticipantes(participantes);
-		return 0;
-	}
 	public int borrarEquipo() {
 		int resp = ((Participante)this.usuarioActivo).borrarEquipo();
 		loader.guardarParticipantes(participantes);
 		return resp;
 	}
-
 	public int guardarCambiosParticipante() {
 		int resp = 1;
 		if (((Participante)this.getUsuarioActivo()).getEquipoActivo().getJugadores().size()==15) {
 			resp = 0;
-			guardarEquipo();
 			loader.guardarParticipantes(participantes);
 		}
 		return resp;
@@ -479,20 +444,11 @@ public class Aplicacion {
 		}
 		return equipos;
 	}
-	/*
-	 * public ArrayList<EquipoReal> crearArrayEquiposReales(){
-	 * ArrayList<EquipoFantasia> equipos = new ArrayList<EquipoFantasia>();
-	 * EquipoFantasia equipo = new EquipoFantasia(); for (int i = 0;
-	 * i<this.participantes.size();i++) { equipo =
-	 * this.participantes.get(i).getEquipo(); equipos.add(equipo); } return equipos;
-	 * }
-	 */
 	public void cambiarCapitan(int nuevoCapitan) {
 		((Participante)this.usuarioActivo).cambiarCapitan(nuevoCapitan);
 	}
-	public int encontrarPosicion() {
+	public int encontrarPosicionEquipo() {
 		return this.temporadaActual.getRankingEquiposFantasia().indexOf(((Participante)usuarioActivo).getEquipoActivo());
-		
 	}
 	public int crearEquipoV2(ArrayList<Jugador> equipo, String nombre) {
 		boolean modificar = permitirModificar();
@@ -558,10 +514,6 @@ public class Aplicacion {
 		}
 		return resp;
 	}
-//	public void organizarJugadoresEquipo() {
-//		((Participante)this.usuarioActivo).organizarJugadores();
-//		
-//	}
 	/**
 	 * Para este metodo falta el input del numero que se recibe por parametro
 	 * @return 

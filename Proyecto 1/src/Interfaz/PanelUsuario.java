@@ -146,25 +146,26 @@ public class PanelUsuario extends JPanel{
 	public void actualizarAlineacion(EquipoFantasia equipo) {
 		if (equipo !=null) {
 			setBorder(new TitledBorder(equipo.getNombre()));
+			titular1.setText(equipo.getTitulares().get(0).toString());
+			titular2.setText(equipo.getTitulares().get(1).toString());
+			titular3.setText(equipo.getTitulares().get(2).toString());
+			titular4.setText(equipo.getTitulares().get(3).toString());
+			titular5.setText(equipo.getTitulares().get(4).toString());
+			titular6.setText(equipo.getTitulares().get(5).toString());
+			titular7.setText(equipo.getTitulares().get(6).toString());
+			titular8.setText(equipo.getTitulares().get(7).toString());
+			titular9.setText(equipo.getTitulares().get(8).toString());
+			titular10.setText(equipo.getTitulares().get(9).toString());
+			titular11.setText(equipo.getTitulares().get(10).toString());
+			suplente1.setText(equipo.getSuplentes().get(0).toString());
+			suplente2.setText(equipo.getSuplentes().get(1).toString());
+			suplente3.setText(equipo.getSuplentes().get(2).toString());
+			suplente4.setText("");
+			if (equipo.getSuplentes().size()==4) {
+				suplente4.setText(equipo.getSuplentes().get(3).toString());	
+			}
 		}
-		titular1.setText(equipo.getTitulares().get(0).toString());
-		titular2.setText(equipo.getTitulares().get(1).toString());
-		titular3.setText(equipo.getTitulares().get(2).toString());
-		titular4.setText(equipo.getTitulares().get(3).toString());
-		titular5.setText(equipo.getTitulares().get(4).toString());
-		titular6.setText(equipo.getTitulares().get(5).toString());
-		titular7.setText(equipo.getTitulares().get(6).toString());
-		titular8.setText(equipo.getTitulares().get(7).toString());
-		titular9.setText(equipo.getTitulares().get(8).toString());
-		titular10.setText(equipo.getTitulares().get(9).toString());
-		titular11.setText(equipo.getTitulares().get(10).toString());
-		suplente1.setText(equipo.getSuplentes().get(0).toString());
-		suplente2.setText(equipo.getSuplentes().get(1).toString());
-		suplente3.setText(equipo.getSuplentes().get(2).toString());
-		suplente4.setText("");
-		if (equipo.getSuplentes().size()==4) {
-			suplente4.setText(equipo.getSuplentes().get(3).toString());	
-		}
+		
 			
 	}
 	public void borrarSelecciones() {

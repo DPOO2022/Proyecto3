@@ -50,13 +50,15 @@ public class PanelUsuarioDerecha extends JPanel{
 	}
 
 	public void actualizarCapitan() {
-		this.campoCapitan.setText(this.padre.getEquipoSeleccionado().getCapitan().getNombre());
-		
+		if (this.padre.getEquipoSeleccionado()!=null) {
+			this.campoCapitan.setText(this.padre.getEquipoSeleccionado().getCapitan().getNombre());
+		}
 	}
 
 	public void actualizarPresupuesto() {
-		this.campoPresupuesto.setText(Double.toString(this.padre.getEquipoSeleccionado().getPresupuesto()));
-		
+		if (this.padre.getEquipoSeleccionado()!=null) {
+			this.campoPresupuesto.setText(Double.toString(this.padre.getEquipoSeleccionado().getPresupuesto()));
+		}
 	}
 	
 }
