@@ -195,6 +195,9 @@ public class InterfazPrincipal extends JFrame{
 	}
 	public int cargarResulPartido(String rutaPartido) {
 		int resp = this.app.cargarResultadoPartido(rutaPartido);
+		if (resp == 0) {
+			JOptionPane.showMessageDialog(this, "Los resultados se cargaron correctamente","",JOptionPane.INFORMATION_MESSAGE);
+		}
 		return resp;
 	}
 	public int venderJugador(ArrayList<String>seleccion) {

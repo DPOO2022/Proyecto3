@@ -50,7 +50,7 @@ public class Jornada {
 		this.rankingEquiposFantasia = rankingEquiposFantasia;
 		ArrayList<EquipoFantasia>cRank = new ArrayList<EquipoFantasia>(rankingEquiposFantasia);
 		cRank.removeAll(Collections.singleton(null));
-		if (this.rankingEquiposFantasia!=null && cRank.size()>2) {
+		if (this.rankingEquiposFantasia!=null && cRank.size()>=2) {
 			this.rankingEquiposFantasia.sort((EquipoFantasia a , EquipoFantasia b) -> -(Double.compare(a.getPuntosJornada().get(getNumeroJornada()-1), b.getPuntosJornada().get(getNumeroJornada()-1))));
 		}
 	}

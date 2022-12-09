@@ -544,7 +544,7 @@ public class Aplicacion {
 	 * @return 
 	 */
 	public JFreeChart mostrarGraficoComparacionPuntosEquipos() {
-		return temporadaActual.graficoComparacionEquipos(5);
+		return temporadaActual.graficoComparacionEquipos(2);
 	}
 	public void setEquipoSeleccionado(EquipoFantasia equipo) {
 		((Participante)this.usuarioActivo).setEquipoActivo(equipo);

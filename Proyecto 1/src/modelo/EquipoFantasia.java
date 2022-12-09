@@ -79,7 +79,13 @@ public class EquipoFantasia {
 		}
 		
 		this.puntosTotales += puntos;
-		this.puntosJornada.set(numJornada-1, puntos);
+		if (this.puntosJornada.size() >= numJornada) {
+			Double puntosActuales = this.puntosJornada.get(numJornada-1);
+			this.puntosJornada.set(numJornada-1, puntosActuales+puntos);
+		}
+		else {
+			this.puntosJornada.set(numJornada-1, puntos);
+		}
 	}
 	public ArrayList<Jugador> getJugadores() {
 		return jugadores;
