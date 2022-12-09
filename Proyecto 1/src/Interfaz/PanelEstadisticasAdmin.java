@@ -12,7 +12,7 @@ public class PanelEstadisticasAdmin extends JPanel implements ActionListener{
 	private static final String JUGADORES = "JUGADORES";
 	private static final String JEQUIPO = "JEQUIPO";
 	private JButton btnEstComparacionRankEquipos;
-	private JButton btnEstJugadoresMayorAporte;
+	private JButton btnPuntosJugadoresEquipo;
 	private JButton btnEstJugadoresMasPuntosUnEquipo;
 	private VentanaEstadisticaAdmin padre;
 	public PanelEstadisticasAdmin(VentanaEstadisticaAdmin papa) {
@@ -22,9 +22,9 @@ public class PanelEstadisticasAdmin extends JPanel implements ActionListener{
 		btnEstComparacionRankEquipos.setActionCommand(EQUIPOS);
 		btnEstComparacionRankEquipos.addActionListener(this);
 		
-		btnEstJugadoresMayorAporte = new JButton("Jugadores Mayor Aporte");
-		btnEstJugadoresMayorAporte.setActionCommand(JUGADORES);
-		btnEstJugadoresMayorAporte.addActionListener(this);
+		btnPuntosJugadoresEquipo = new JButton("Jugadores Mayor Aporte");
+		btnPuntosJugadoresEquipo.setActionCommand(JUGADORES);
+		btnPuntosJugadoresEquipo.addActionListener(this);
 		
 		btnEstJugadoresMasPuntosUnEquipo = new JButton("Jugadores Mas Puntos en un equipo");
 		btnEstJugadoresMasPuntosUnEquipo.setActionCommand(JEQUIPO);
@@ -33,7 +33,7 @@ public class PanelEstadisticasAdmin extends JPanel implements ActionListener{
 		setLayout(new FlowLayout());
 		
 		add(btnEstComparacionRankEquipos);
-		add(btnEstJugadoresMayorAporte);
+		add(btnPuntosJugadoresEquipo);
 		add(btnEstJugadoresMasPuntosUnEquipo);
 	}
 	@Override
@@ -45,9 +45,9 @@ public class PanelEstadisticasAdmin extends JPanel implements ActionListener{
 		if(evento.equals(JUGADORES)) {
 			this.padre.mostrarJugadoresMayorAporte();
 		}
-		if(evento.equals(JEQUIPO)) {
-			this.padre.mostrarJugadoresMasPuntosUnEquipo();
-		}
+		//if(evento.equals(JEQUIPO)) {
+		//	this.padre.mostrarJ();
+		//}
 	}
 }
 

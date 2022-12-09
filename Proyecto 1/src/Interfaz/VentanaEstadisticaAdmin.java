@@ -27,10 +27,7 @@ public class VentanaEstadisticaAdmin extends JFrame{
 		this.padre.mostrarComparacionRankEquipos();
 	}
 	public void mostrarJugadoresMayorAporte() {
-		this.padre.mostrarJugadoresMayorAporte();
-	}
-	public void mostrarJugadoresMasPuntosUnEquipo() {
-		this.padre.mostrarJugadoresMasPuntosUnEquipo();
+		this.padre.mostrarPuntosJugadoresEquipo();
 	}
 	
 }

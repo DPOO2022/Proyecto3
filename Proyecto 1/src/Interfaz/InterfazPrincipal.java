@@ -305,11 +305,10 @@ public class InterfazPrincipal extends JFrame{
         fr.pack();
         fr.setVisible(true);
 	}
-	public void mostrarJugadoresMayorAporte() {
-		
-	}
-	public void mostrarJugadoresMasPuntosUnEquipo() {
-		
+	public void mostrarPuntosJugadoresEquipo() {
+		ChartFrame fr = new ChartFrame("Puntos de los jugadores en un equipo", app.mostrarGraficoPuntosJugadoresEquipo());
+        fr.pack();
+        fr.setVisible(true);
 	}
 	public void crearNuevoEquipo() {
 		this.vCrear = new VentanaCrearEquipo(this);
@@ -317,4 +316,5 @@ public class InterfazPrincipal extends JFrame{
 	public void setEquipoSeleccionado(EquipoFantasia equipo) {
 		this.app.setEquipoSeleccionado(equipo);
 	}
+	
 }
