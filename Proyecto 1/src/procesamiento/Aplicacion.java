@@ -324,6 +324,9 @@ public class Aplicacion {
 					jugadorLista.getPenaltisErradosJornada().add(numJornada-1, jugadorResultado.getPenaltisErrados());
 					jugadorLista.getAmarillasJornada().add(numJornada-1, jugadorResultado.getAmarillas());
 					jugadorLista.getRojasJornada().add(numJornada-1, jugadorResultado.getRojas());
+					jugadorLista.getManosJornada().add(numJornada-1, jugadorResultado.getManos());
+					jugadorLista.getTirosLibresCobradosJornada().add(numJornada-1, jugadorResultado.getTirosLibresCobrados());
+					jugadorLista.getTirosLibresAnotadosJornada().add(numJornada-1, jugadorResultado.getTirosLibresAnotados());
 					if(jugadorResultado.getPosicion().equals("arquero")) {
 						Arquero arqueroResultado = (Arquero)jugadorResultado;
 						Arquero arqueroLista = (Arquero)jugadorLista;
@@ -335,6 +338,15 @@ public class Aplicacion {
 						Defensa defensaResultado = (Defensa)jugadorResultado;
 						Defensa defensaLista = (Defensa)jugadorLista;
 						defensaLista.getGolesRecibidosJornada().add(numJornada-1, defensaResultado.getGolesRecibidos());
+					}
+					if(datosPartido.getGolesLocal()>datosPartido.getGolesVisitante()) {
+						jugadorLista.getResultadoPartidoJornada().add(numJornada-1, "Ganó");
+					}
+					else if(datosPartido.getGolesLocal()==datosPartido.getGolesVisitante()) {
+						jugadorLista.getResultadoPartidoJornada().add(numJornada-1, "Empató");
+					}
+					else if(datosPartido.getGolesLocal()<datosPartido.getGolesVisitante()) {
+						jugadorLista.getResultadoPartidoJornada().add(numJornada-1, "Perdió");
 					}
 				}
 			} 
@@ -353,6 +365,9 @@ public class Aplicacion {
 					jugadorLista.getPenaltisErradosJornada().add(numJornada-1, jugadorResultado.getPenaltisErrados());
 					jugadorLista.getAmarillasJornada().add(numJornada-1, jugadorResultado.getAmarillas());
 					jugadorLista.getRojasJornada().add(numJornada-1, jugadorResultado.getRojas());
+					jugadorLista.getManosJornada().add(numJornada-1, jugadorResultado.getManos());
+					jugadorLista.getTirosLibresCobradosJornada().add(numJornada-1, jugadorResultado.getTirosLibresCobrados());
+					jugadorLista.getTirosLibresAnotadosJornada().add(numJornada-1, jugadorResultado.getTirosLibresAnotados());
 					if(jugadorResultado.getPosicion().equals("arquero")) {
 						Arquero arqueroResultado = (Arquero)jugadorResultado;
 						Arquero arqueroLista = (Arquero)jugadorLista;
@@ -364,6 +379,15 @@ public class Aplicacion {
 						Defensa defensaResultado = (Defensa)jugadorResultado;
 						Defensa defensaLista = (Defensa)jugadorLista;
 						defensaLista.getGolesRecibidosJornada().add(numJornada-1, defensaResultado.getGolesRecibidos());
+					}
+					if(datosPartido.getGolesLocal()<datosPartido.getGolesVisitante()) {
+						jugadorLista.getResultadoPartidoJornada().add(numJornada-1, "Ganó");
+					}
+					else if(datosPartido.getGolesLocal()==datosPartido.getGolesVisitante()) {
+						jugadorLista.getResultadoPartidoJornada().add(numJornada-1, "Empató");
+					}
+					else if(datosPartido.getGolesLocal()>datosPartido.getGolesVisitante()) {
+						jugadorLista.getResultadoPartidoJornada().add(numJornada-1, "Perdió");
 					}
 				}
 			} 
@@ -385,6 +409,7 @@ public class Aplicacion {
 			}
 		}
 		partido.actualizarResultadoPartido(numJornada);
+		
 		actualizarPuntosEquipos(numJornada);
 		actualizarRankingEquiposJornada(numJornada);
 		actualizarRankingJugadoresJornada(numJornada);

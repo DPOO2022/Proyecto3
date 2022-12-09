@@ -33,6 +33,9 @@ public abstract class Jugador {
 	protected int penaltisErrados;
 	protected int amarillas;
 	protected int rojas;
+	protected int manos;
+	protected int tirosLibresCobrados;
+	protected int tirosLibresAnotados;
 	protected ArrayList<Integer> minutosJugadosJornada;
 	protected ArrayList<Integer> minutoInicioJornada;
 	protected ArrayList<Integer> minutoSustitucionJornada;
@@ -42,7 +45,6 @@ public abstract class Jugador {
 	protected ArrayList<Integer> penaltisErradosJornada;
 	protected ArrayList<Integer> amarillasJornada;
 	protected ArrayList<Integer> rojasJornada;
-	
 	protected ArrayList<Integer> manosJornada;
 	protected ArrayList<Integer> tirosLibresCobradosJornada;
 	protected ArrayList<Integer> tirosLibresAnotadosJornada;
@@ -63,6 +65,18 @@ public abstract class Jugador {
 		tirosLibresCobradosJornada = new ArrayList<Integer>();
 		tirosLibresAnotadosJornada = new ArrayList<Integer>();
 		resultadoPartidoJornada =  new ArrayList<String>();
+	}
+	public int getTirosLibresCobrados() {
+		return tirosLibresCobrados;
+	}
+	public void setTirosLibresCobrados(int tirosLibresCobrados) {
+		this.tirosLibresCobrados = tirosLibresCobrados;
+	}
+	public int getTirosLibresAnotados() {
+		return tirosLibresAnotados;
+	}
+	public void setTirosLibresAnotados(int tirosLibresAnotados) {
+		this.tirosLibresAnotados = tirosLibresAnotados;
 	}
 	public ArrayList<Integer> getManosJornada() {
 		return manosJornada;
@@ -185,6 +199,9 @@ public abstract class Jugador {
 		for (int d: minutoInicioJornada) {
 			this.minutoInicio+=d;
 		}
+	}
+	public int getManos() {
+		return this.manos;
 	}
 	public int getMinutoSustitucion() {
 		return minutoSustitucion;

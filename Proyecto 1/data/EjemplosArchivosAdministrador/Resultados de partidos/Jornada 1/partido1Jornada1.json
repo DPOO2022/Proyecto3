@@ -16,7 +16,10 @@
 				"amarillas": 0,
 				"rojas": 1,
 				"golesRecibidos": 0,
-				"penaltisAtajados": 0
+				"penaltisAtajados": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"posicion": "arquero",
@@ -31,7 +34,10 @@
 				"amarillas": 0,
 				"rojas": 0,
 				"golesRecibidos": 0,
-				"penaltisAtajados": 0
+				"penaltisAtajados": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"posicion": "defensa",
@@ -45,7 +51,10 @@
 				"penaltisErrados": 0,
 				"amarillas": 0,
 				"rojas": 0,
-				"golesRecibidos": 3
+				"golesRecibidos": 3,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"posicion": "defensa",
@@ -59,7 +68,10 @@
 				"penaltisErrados": 0,
 				"amarillas": 1,
 				"rojas": 0,
-				"golesRecibidos": 0
+				"golesRecibidos": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"posicion": "defensa",
@@ -73,12 +85,14 @@
 				"penaltisErrados": 0,
 				"amarillas": 0,
 				"rojas": 0,
-				"golesRecibidos": 0
+				"golesRecibidos": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"posicion": "defensa",
 				"nombre": "Khalid Gutierrez",
-				"posicion": "defensa",
 				"minutosJugados": 0,
 				"minutoInicio": 0,
 				"minutoSustitucion": 0,
@@ -88,12 +102,14 @@
 				"penaltisErrados": 0,
 				"amarillas": 2,
 				"rojas": 0,
-				"golesRecibidos": 0
+				"golesRecibidos": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"posicion": "defensa",
 				"nombre": "Borja Toribio",
-				"posicion": "defensa",
 				"minutosJugados": 40,
 				"minutoInicio": 0,
 				"minutoSustitucion": 0,
@@ -103,12 +119,14 @@
 				"penaltisErrados": 0,
 				"amarillas": 3,
 				"rojas": 1,
-				"golesRecibidos": 0
+				"golesRecibidos": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"posicion": "mediocampista",
 				"nombre": "Josue Cobos",
-				"posicion": "mediocampista",
 				"minutosJugados": 50,
 				"minutoInicio": 10,
 				"minutoSustitucion": 0,
@@ -117,7 +135,10 @@
 				"asistencias": 0,
 				"penaltisErrados": 0,
 				"amarillas": 0,
-				"rojas": 0
+				"rojas": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"posicion": "mediocampista",
@@ -130,7 +151,10 @@
 				"asistencias": 0,
 				"penaltisErrados": 0,
 				"amarillas": 1,
-				"rojas": 0
+				"rojas": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"posicion": "mediocampista",
@@ -143,7 +167,10 @@
 				"asistencias": 0,
 				"penaltisErrados": 0,
 				"amarillas": 0,
-				"rojas": 0
+				"rojas": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"posicion": "mediocampista",
@@ -156,12 +183,14 @@
 				"asistencias": 0,
 				"penaltisErrados": 0,
 				"amarillas": 0,
-				"rojas": 0
+				"rojas": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"posicion": "mediocampista",
 				"nombre": "Enrique Vilar",
-				"posicion": "mediocampista",
 				"minutosJugados": 0,
 				"minutoInicio": 0,
 				"minutoSustitucion": 0,
@@ -170,7 +199,10 @@
 				"asistencias": 0,
 				"penaltisErrados": 0,
 				"amarillas": 0,
-				"rojas": 0
+				"rojas": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"posicion": "delantero",
@@ -183,7 +215,10 @@
 				"asistencias": 0,
 				"penaltisErrados": 0,
 				"amarillas": 0,
-				"rojas": 0
+				"rojas": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"posicion": "delantero",
@@ -196,7 +231,10 @@
 				"asistencias": 0,
 				"penaltisErrados": 0,
 				"amarillas": 0,
-				"rojas": 0
+				"rojas": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"posicion": "delantero",
@@ -209,7 +247,10 @@
 				"asistencias": 0,
 				"penaltisErrados": 0,
 				"amarillas": 0,
-				"rojas": 0
+				"rojas": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			}
 		]
 	},
@@ -229,7 +270,10 @@
 				"amarillas": 0,
 				"rojas": 1,
 				"golesRecibidos": 0,
-				"penaltisAtajados": 0
+				"penaltisAtajados": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"posicion": "arquero",
@@ -244,7 +288,10 @@
 				"amarillas": 0,
 				"rojas": 2,
 				"golesRecibidos": 0,
-				"penaltisAtajados": 0
+				"penaltisAtajados": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"posicion": "defensa",
@@ -258,7 +305,10 @@
 				"penaltisErrados": 0,
 				"amarillas": 0,
 				"rojas": 0,
-				"golesRecibidos": 0
+				"golesRecibidos": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"posicion": "defensa",
@@ -272,7 +322,10 @@
 				"penaltisErrados": 0,
 				"amarillas": 0,
 				"rojas": 0,
-				"golesRecibidos": 0
+				"golesRecibidos": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"posicion": "defensa",
@@ -286,7 +339,10 @@
 				"penaltisErrados": 0,
 				"amarillas": 0,
 				"rojas": 0,
-				"golesRecibidos": 0
+				"golesRecibidos": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"posicion": "defensa",
@@ -300,7 +356,10 @@
 				"penaltisErrados": 0,
 				"amarillas": 2,
 				"rojas": 0,
-				"golesRecibidos": 0
+				"golesRecibidos": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"posicion": "defensa",
@@ -314,7 +373,10 @@
 				"penaltisErrados": 0,
 				"amarillas": 1,
 				"rojas": 0,
-				"golesRecibidos": 0
+				"golesRecibidos": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"posicion": "mediocampista",
@@ -327,7 +389,10 @@
 				"asistencias": 0,
 				"penaltisErrados": 0,
 				"amarillas": 0,
-				"rojas": 0
+				"rojas": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"posicion": "mediocampista",
@@ -340,7 +405,10 @@
 				"asistencias": 0,
 				"penaltisErrados": 0,
 				"amarillas": 0,
-				"rojas": 0
+				"rojas": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"posicion": "mediocampista",
@@ -353,7 +421,10 @@
 				"asistencias": 0,
 				"penaltisErrados": 0,
 				"amarillas": 0,
-				"rojas": 0
+				"rojas": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"posicion": "mediocampista",
@@ -366,7 +437,10 @@
 				"asistencias": 0,
 				"penaltisErrados": 0,
 				"amarillas": 2,
-				"rojas": 0
+				"rojas": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"posicion": "mediocampista",
@@ -379,7 +453,10 @@
 				"asistencias": 0,
 				"penaltisErrados": 0,
 				"amarillas": 0,
-				"rojas": 1
+				"rojas": 1,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"posicion": "delantero",
@@ -392,7 +469,10 @@
 				"asistencias": 0,
 				"penaltisErrados": 3,
 				"amarillas": 0,
-				"rojas": 0
+				"rojas": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"posicion": "delantero",
@@ -405,7 +485,10 @@
 				"asistencias": 0,
 				"penaltisErrados": 2,
 				"amarillas": 0,
-				"rojas": 0
+				"rojas": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"posicion": "delantero",
@@ -418,7 +501,10 @@
 				"asistencias": 0,
 				"penaltisErrados": 0,
 				"amarillas": 0,
-				"rojas": 1
+				"rojas": 1,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			}
 		]
 	},

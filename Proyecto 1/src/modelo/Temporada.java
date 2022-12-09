@@ -16,6 +16,11 @@ public class Temporada {
 	private ArrayList<EquipoFantasia> equiposFantasia;
 	private ArrayList<EquipoFantasia> rankingEquiposFantasia;
 	private ArrayList<Jugador> rankingJugadores;
+	public Temporada() {
+		equiposFantasia = new ArrayList<EquipoFantasia>();
+		rankingEquiposFantasia = new ArrayList<EquipoFantasia>();
+		rankingJugadores = new ArrayList<Jugador>();
+	}
 	public ArrayList<Jornada> getJornadas() {
 		return jornadas;
 	}
@@ -97,7 +102,6 @@ public class Temporada {
 		DefaultCategoryDataset dts = new DefaultCategoryDataset();
 		for (int i=0; i<nRanking;i++) {
 			EquipoFantasia equipo= rankingEquiposFantasia.get(i);
-			
 			for (int j=0; j<equipo.getPuntosJornada().size()-1; j++) {
 				dts.addValue(equipo.getPuntosJornada().get(j),equipo.getNombre(),""+(j+1));
 			}

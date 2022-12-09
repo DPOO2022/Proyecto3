@@ -16,7 +16,10 @@
 				"amarillas": 0,
 				"rojas": 0,
 				"golesRecibidos": 0,
-				"penaltisAtajados": 0
+				"penaltisAtajados": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"nombre": "Ramon Figueras",
@@ -31,7 +34,10 @@
 				"amarillas": 0,
 				"rojas": 0,
 				"golesRecibidos": 0,
-				"penaltisAtajados": 0
+				"penaltisAtajados": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"nombre": "Zakaria Alcalde",
@@ -45,7 +51,10 @@
 				"penaltisErrados": 0,
 				"amarillas": 0,
 				"rojas": 0,
-				"golesRecibidos": 0
+				"golesRecibidos": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"nombre": "Manel Herranz",
@@ -59,7 +68,10 @@
 				"penaltisErrados": 0,
 				"amarillas": 0,
 				"rojas": 0,
-				"golesRecibidos": 0
+				"golesRecibidos": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"nombre": "Pedro Toledo",
@@ -73,7 +85,10 @@
 				"penaltisErrados": 0,
 				"amarillas": 0,
 				"rojas": 0,
-				"golesRecibidos": 0
+				"golesRecibidos": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"nombre": "Esteban Acedo",
@@ -87,7 +102,10 @@
 				"penaltisErrados": 0,
 				"amarillas": 0,
 				"rojas": 0,
-				"golesRecibidos": 0
+				"golesRecibidos": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"nombre": "Matias Bernabeu",
@@ -101,7 +119,10 @@
 				"penaltisErrados": 0,
 				"amarillas": 0,
 				"rojas": 0,
-				"golesRecibidos": 0
+				"golesRecibidos": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"nombre": "Victor Raya",
@@ -114,7 +135,10 @@
 				"asistencias": 0,
 				"penaltisErrados": 0,
 				"amarillas": 0,
-				"rojas": 0
+				"rojas": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"nombre": "Manel Valera",
@@ -127,7 +151,10 @@
 				"asistencias": 0,
 				"penaltisErrados": 0,
 				"amarillas": 0,
-				"rojas": 0
+				"rojas": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"nombre": "Samuel Burgos",
@@ -140,7 +167,10 @@
 				"asistencias": 0,
 				"penaltisErrados": 0,
 				"amarillas": 0,
-				"rojas": 0
+				"rojas": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"nombre": "Marcos Olmos",
@@ -153,7 +183,10 @@
 				"asistencias": 0,
 				"penaltisErrados": 0,
 				"amarillas": 0,
-				"rojas": 0
+				"rojas": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"nombre": "Gorka Fraga",
@@ -166,7 +199,10 @@
 				"asistencias": 0,
 				"penaltisErrados": 0,
 				"amarillas": 0,
-				"rojas": 0
+				"rojas": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"nombre": "Abdeslam Otero",
@@ -179,7 +215,10 @@
 				"asistencias": 0,
 				"penaltisErrados": 0,
 				"amarillas": 0,
-				"rojas": 0
+				"rojas": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"nombre": "Youssef Pinilla",
@@ -192,7 +231,10 @@
 				"asistencias": 0,
 				"penaltisErrados": 0,
 				"amarillas": 0,
-				"rojas": 0
+				"rojas": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"nombre": "Hamza Lorente",
@@ -205,7 +247,10 @@
 				"asistencias": 0,
 				"penaltisErrados": 0,
 				"amarillas": 0,
-				"rojas": 0
+				"rojas": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			}
 		]
 	},
@@ -225,7 +270,10 @@
 				"amarillas": 0,
 				"rojas": 0,
 				"golesRecibidos": 0,
-				"penaltisAtajados": 0
+				"penaltisAtajados": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"nombre": "Manel Luengo",
@@ -240,7 +288,10 @@
 				"amarillas": 0,
 				"rojas": 0,
 				"golesRecibidos": 0,
-				"penaltisAtajados": 0
+				"penaltisAtajados": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"nombre": "Oier Benavente",
@@ -254,7 +305,10 @@
 				"penaltisErrados": 0,
 				"amarillas": 0,
 				"rojas": 0,
-				"golesRecibidos": 0
+				"golesRecibidos": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"nombre": "Victorino Leal",
@@ -268,7 +322,10 @@
 				"penaltisErrados": 0,
 				"amarillas": 0,
 				"rojas": 0,
-				"golesRecibidos": 0
+				"golesRecibidos": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"nombre": "Ian Viera",
@@ -282,7 +339,10 @@
 				"penaltisErrados": 0,
 				"amarillas": 0,
 				"rojas": 0,
-				"golesRecibidos": 0
+				"golesRecibidos": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"nombre": "Antonio Costa",
@@ -296,7 +356,10 @@
 				"penaltisErrados": 0,
 				"amarillas": 0,
 				"rojas": 0,
-				"golesRecibidos": 0
+				"golesRecibidos": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"nombre": "Eliseo Berrocal",
@@ -310,7 +373,10 @@
 				"penaltisErrados": 0,
 				"amarillas": 0,
 				"rojas": 0,
-				"golesRecibidos": 0
+				"golesRecibidos": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"nombre": "Anibal Llopis",
@@ -324,7 +390,10 @@
 				"asistencias": 0,
 				"penaltisErrados": 0,
 				"amarillas": 0,
-				"rojas": 0
+				"rojas": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"nombre": "Cesar Barrera",
@@ -337,7 +406,10 @@
 				"asistencias": 0,
 				"penaltisErrados": 0,
 				"amarillas": 0,
-				"rojas": 0
+				"rojas": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"nombre": "Luis Castellanos",
@@ -350,7 +422,10 @@
 				"asistencias": 0,
 				"penaltisErrados": 0,
 				"amarillas": 0,
-				"rojas": 0
+				"rojas": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"nombre": "Mauro Barragan",
@@ -363,7 +438,10 @@
 				"asistencias": 0,
 				"penaltisErrados": 0,
 				"amarillas": 0,
-				"rojas": 0
+				"rojas": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"nombre": "Tomas Minguez",
@@ -376,7 +454,10 @@
 				"asistencias": 0,
 				"penaltisErrados": 0,
 				"amarillas": 0,
-				"rojas": 0
+				"rojas": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"nombre": "Luciano Valdivia",
@@ -389,7 +470,10 @@
 				"asistencias": 0,
 				"penaltisErrados": 0,
 				"amarillas": 0,
-				"rojas": 0
+				"rojas": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"nombre": "Dylan Puertas",
@@ -402,7 +486,10 @@
 				"asistencias": 0,
 				"penaltisErrados": 0,
 				"amarillas": 0,
-				"rojas": 0
+				"rojas": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			},
 			{
 				"nombre": "Ahmed Rosell",
@@ -415,7 +502,10 @@
 				"asistencias": 0,
 				"penaltisErrados": 0,
 				"amarillas": 0,
-				"rojas": 0
+				"rojas": 0,
+				"manos":0,
+				"tirosLibresCobrados":0,
+				"tirosLibresAnotados":0
 			}
 		]
 	},

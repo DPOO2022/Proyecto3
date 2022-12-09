@@ -51,14 +51,20 @@ public class EquipoFantasia {
 			else {
 				puntos+=j.getPuntosJornada().get(numJornada-1);
 			}
-			if(j.getResultadoPartidoJornada().get(numJornada-1)=="Ganó") {
-				ganadores+= 1;
+			if(j.getResultadoPartidoJornada().size()>=numJornada) {
+				if(j.getResultadoPartidoJornada().get(numJornada-1).equals("Ganó")) {
+					ganadores+= 1;
+				}
+			
+			
+				if(!(j.getResultadoPartidoJornada().get(numJornada-1).equals("Perdió"))) {
+					noPerdio+= 1;
+				}
 			}
-			if(j.getResultadoPartidoJornada().get(numJornada-1)!="Perdió") {
-				noPerdio+= 1;
-			}
-			if(j.getMinutosJugadosJornada().get(numJornada-1)>60) {
-				mas60Minutos+= 1;
+			if(j.getMinutosJugadosJornada().size()>=numJornada) {
+				if(j.getMinutosJugadosJornada().get(numJornada-1)>60) {
+					mas60Minutos+= 1;
+				}
 			}
 		}
 		 
