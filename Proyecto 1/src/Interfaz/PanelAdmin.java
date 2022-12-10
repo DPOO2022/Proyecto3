@@ -1,5 +1,6 @@
 package Interfaz;
 
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,6 +29,7 @@ public class PanelAdmin extends JPanel implements ActionListener{
 	public PanelAdmin(VentanaAdmin papa) {
 		padre = papa;
 		
+		
 		cargarTemporada = new JButton("Cargar información temporada");
 		cargarTemporada.setActionCommand(CTEMPORADA);
 		cargarTemporada.addActionListener(this);
@@ -36,7 +38,7 @@ public class PanelAdmin extends JPanel implements ActionListener{
 		cargarUnPartido.setActionCommand(CPARTIDO);
 		cargarUnPartido.addActionListener(this);
 		
-		verEstadisticas = new JButton("Estadisticas de los equipos y jugadores");
+		verEstadisticas = new JButton("Ver Estadísticas");
 		verEstadisticas.setActionCommand(ESTADISTICAS);
 		verEstadisticas.addActionListener(this);
 		

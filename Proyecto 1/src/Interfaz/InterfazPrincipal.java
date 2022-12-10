@@ -59,11 +59,9 @@ public class InterfazPrincipal extends JFrame{
 		if (resp == 1) {
 			JOptionPane.showMessageDialog(this,"La contraseña no es correcta", "Error", JOptionPane.ERROR_MESSAGE);
 		}
-		
 		if (resp == 2) {
 			JOptionPane.showMessageDialog(this, "El nombre de usuario no existe","Error",JOptionPane.ERROR_MESSAGE);
 		}
-		
 		if(resp == 0) {
 			if (this.app.getUsuarioActivo().getClass().getName().equals("modelo.Participante")) {
 				if(temporadaConfigurada) {
@@ -278,6 +276,7 @@ public class InterfazPrincipal extends JFrame{
 		this.app.cerrarSesion();
 		this.vAdministrador.dispose();
 		JOptionPane.showMessageDialog(this, "Su sesión se ha cerrado.","",JOptionPane.INFORMATION_MESSAGE);
+		
 		this.vInicio = new VentanaInicio(this);
 	}
 	public void borrarTemporada() {
@@ -288,27 +287,39 @@ public class InterfazPrincipal extends JFrame{
 	public void borrarEquipo() {
 		this.app.borrarEquipo();
 		JOptionPane.showMessageDialog(this, "Su equipo se ha eliminado.","",JOptionPane.INFORMATION_MESSAGE);
-		this.vUsuario.dispose();
-		this.vCrear = new VentanaCrearEquipo(this);
+		//this.vUsuario.dispose();
+		//this.vCrear = new VentanaCrearEquipo(this);
 	}
 	public void cerrarSesionUsuario() {
 		this.app.cerrarSesion();
 		this.vUsuario.dispose();
+		this.vUsuario =null;
 		JOptionPane.showMessageDialog(this, "Su sesión se ha cerrado.","",JOptionPane.INFORMATION_MESSAGE);
 		this.vInicio = new VentanaInicio(this);
 	}
 	public void verEstadisticasAdmin() {
 		vEstAdmin = new VentanaEstadisticaAdmin(this);
 	}
-	public void mostrarComparacionRankEquipos() {
-		ChartFrame fr = new ChartFrame("Evolucion de los mejores equipos", app.mostrarGraficoComparacionPuntosEquipos());
-        fr.pack();
-        fr.setVisible(true);
+	public void mostrarComparacionRankEquipos(String ranking) {
+        try {
+			int numRanking = Integer.parseInt(ranking);
+			ChartFrame fr = new ChartFrame("Evolucion de los mejores equipos", app.mostrarGraficoComparacionPuntosEquipos(numRanking));
+	        fr.pack();
+	        fr.setVisible(true);
+		}catch(Exception ex) {
+			JOptionPane.showMessageDialog(this, "Recuerde que debe ingresar un entero positivo en el campo de texto","",JOptionPane.INFORMATION_MESSAGE);
+		}
 	}
-	public void mostrarPuntosJugadoresEquipo() {
-		ChartFrame fr = new ChartFrame("Puntos de los jugadores en un equipo", app.mostrarGraficoPuntosJugadoresEquipo());
-        fr.pack();
-        fr.setVisible(true);
+	public void mostrarPuntosJugadoresEquipo(String ranking) {
+		try {
+			int numRanking = Integer.parseInt(ranking);
+			ChartFrame fr = new ChartFrame("Puntos de los jugadores en un equipo", app.mostrarGraficoPuntosJugadoresEquipo(numRanking));
+	        fr.pack();
+	        fr.setVisible(true);
+		}catch(Exception ex) {
+			JOptionPane.showMessageDialog(this, "Recuerde que debe ingresar un entero positivo en el campo de texto","",JOptionPane.INFORMATION_MESSAGE);
+		}
+		
 	}
 	public void crearNuevoEquipo() {
 		this.vCrear = new VentanaCrearEquipo(this);

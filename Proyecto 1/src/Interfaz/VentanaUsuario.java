@@ -94,6 +94,7 @@ public class VentanaUsuario extends JFrame{
 	}
 	public void borrarEquipo() {
 		this.padre.borrarEquipo();
+		this.panelUsuario.actualizarAlineacion(null);
 	}
 
 	public void crearNuevoEquipo() {

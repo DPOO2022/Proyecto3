@@ -165,6 +165,24 @@ public class PanelUsuario extends JPanel{
 				suplente4.setText(equipo.getSuplentes().get(3).toString());	
 			}
 		}
+		else{
+			setBorder(new TitledBorder(""));
+			titular1.setText("");
+			titular2.setText("");
+			titular3.setText("");
+			titular4.setText("");
+			titular5.setText("");
+			titular6.setText("");
+			titular7.setText("");
+			titular8.setText("");
+			titular9.setText("");
+			titular10.setText("");
+			titular11.setText("");
+			suplente1.setText("");
+			suplente2.setText("");
+			suplente3.setText("");
+			suplente4.setText("");
+		}
 		
 			
 	}

@@ -394,6 +394,8 @@ public class Aplicacion {
 		}
 		Jornada jornada = new Jornada();
 		Partido partido = new Partido();
+		Partido partido2 = new Partido();
+		int resultados = 0;
 		for(int i = 0; i<this.temporadaActual.getJornadas().size();i++) {
 			jornada = temporadaActual.getJornadas().get(i);
 			if (jornada.getNumeroJornada()==numJornada) {
@@ -402,13 +404,20 @@ public class Aplicacion {
 					if(partido.getEquipoLocal().getNombre().equals(datosPartido.getEquipoLocal().getNombre())&&partido.getEquipoVisitante().getNombre().equals(datosPartido.getEquipoVisitante().getNombre())) {
 						partido.setGolesLocal(datosPartido.getGolesLocal());
 						partido.setGolesVisitante(datosPartido.getGolesVisitante());
-						break;
+						partido2 = partido;
+						partido.setResultado(true);
 					}
+					if(partido.getResultado() == false) {
+						resultados = 1;
+					}
+				}
+				if (resultados == 0) {
+					jornada.setResultado(true);
 				}
 				break;
 			}
 		}
-		partido.actualizarResultadoPartido(numJornada);
+		partido2.actualizarResultadoPartido(numJornada);
 		
 		actualizarPuntosEquipos(numJornada);
 		actualizarRankingEquiposJornada(numJornada);
@@ -543,11 +552,11 @@ public class Aplicacion {
 	 * Para este metodo falta el input del numero que se recibe por parametro
 	 * @return 
 	 */
-	public JFreeChart mostrarGraficoComparacionPuntosEquipos() {
-		return temporadaActual.graficoComparacionEquipos(2);
+	public JFreeChart mostrarGraficoComparacionPuntosEquipos(int ranking) {
+		return temporadaActual.graficoComparacionEquipos(ranking);
 	}
-	public JFreeChart mostrarGraficoPuntosJugadoresEquipo() {
-		return temporadaActual.graficoPuntosJugadoresEquipo(2);
+	public JFreeChart mostrarGraficoPuntosJugadoresEquipo(int ranking) {
+		return temporadaActual.graficoPuntosJugadoresEquipo(ranking);
 	}
 	public void setEquipoSeleccionado(EquipoFantasia equipo) {
 		((Participante)this.usuarioActivo).setEquipoActivo(equipo);

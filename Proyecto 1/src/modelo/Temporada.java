@@ -98,14 +98,18 @@ public class Temporada {
 	}
 	
 	public JFreeChart graficoComparacionEquipos(int nRanking) {
-		
 		DefaultCategoryDataset dts = new DefaultCategoryDataset();
+		if(nRanking>rankingEquiposFantasia.size()) {
+			nRanking = rankingEquiposFantasia.size();
+		}
 		for (int i=0; i<nRanking;i++) {
 			EquipoFantasia equipo= rankingEquiposFantasia.get(i);
 			double contador = 0;
-			for (int j=0; j<equipo.getPuntosJornada().size()-1; j++) {
-				contador += equipo.getPuntosJornada().get(j);
-				dts.addValue(contador,equipo.getNombre(),""+(j+1));
+			for (int j=0; j<equipo.getPuntosJornada().size(); j++) {
+				if(this.jornadas.get(j).getResultado()==true) {
+					contador += equipo.getPuntosJornada().get(j);
+					dts.addValue(contador,equipo.getNombre(),""+(j+1));
+				}
 			}
 		}
 		JFreeChart graficoLineas = ChartFactory.createLineChart("Evolucion de los mejores equipos"
@@ -114,8 +118,10 @@ public class Temporada {
 	}
 
 	public JFreeChart graficoPuntosJugadoresEquipo(int nRanking) {
-		ArrayList<Jugador> jugadores = rankingEquiposFantasia.get(nRanking).getJugadores();
-		
+		ArrayList<Jugador> jugadores = rankingEquiposFantasia.get(nRanking-1).getJugadores();
+		if(nRanking>rankingEquiposFantasia.size()) {
+			nRanking = rankingEquiposFantasia.size();
+		}
 		DefaultCategoryDataset dts = new DefaultCategoryDataset();
 		
 		for (int i = 0; i<jugadores.size(); i++)

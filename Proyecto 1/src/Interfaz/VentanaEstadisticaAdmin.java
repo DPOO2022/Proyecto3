@@ -15,7 +15,7 @@ public class VentanaEstadisticaAdmin extends JFrame{
 			
 			setTitle("Fantasy Football");
 			setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-			setSize(new Dimension(300, 150));
+			setSize(new Dimension(300, 200));
 			setResizable(false);
 			setVisible(true);
 			
@@ -23,11 +23,11 @@ public class VentanaEstadisticaAdmin extends JFrame{
 			
 		
 	}
-	public void mostrarComparacionRankEquipos() {
-		this.padre.mostrarComparacionRankEquipos();
+	public void mostrarComparacionRankEquipos(String ranking) {
+		this.padre.mostrarComparacionRankEquipos(ranking);
 	}
-	public void mostrarJugadoresMayorAporte() {
-		this.padre.mostrarPuntosJugadoresEquipo();
+	public void mostrarJugadoresMayorAporte(String ranking) {
+		this.padre.mostrarPuntosJugadoresEquipo(ranking);
 	}
 	
 }

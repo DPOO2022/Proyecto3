@@ -14,10 +14,12 @@ public class Jornada {
 	private ArrayList<Jugador> rankingJugadores;
 	private String fechaPrimerPartido;
 	private String fechaUltimoPartido;
+	private boolean resultado;
 	public Jornada () {
 		partidos = new ArrayList<Partido>();
 		this.rankingEquiposFantasia = new ArrayList<EquipoFantasia>();
 		this.rankingJugadores = new ArrayList<Jugador>();
+		this.resultado = false;
 	}
 	public void setFechaPrimerPartido(String fecha) {
 		this.fechaPrimerPartido = fecha;
@@ -83,5 +85,12 @@ public class Jornada {
 		for(Partido p: this.partidos) {
 			p.actualizarResultadoPartido(this.numeroJornada);
 		}
+	}
+	public void setResultado(boolean b) {
+		this.resultado = b;
+		
+	}
+	public boolean getResultado() {
+		return this.resultado;
 	}
 }

@@ -60,9 +60,9 @@ public class Participante extends Usuario{
 		return resp;
 	}
 	public int borrarEquipo() {
-		int resp = 1;
-		
-		return resp;
+		this.equipos.remove(this.equipoActivo);
+		this.equipoActivo=null;
+		return 1;
 	}
 	public void setEquipoActivo(EquipoFantasia equipo) {
 		equipoActivo = equipo;

@@ -10,7 +10,10 @@ public class Partido {
 	private int numeroJornada;
 	private int golesLocal;
 	private int golesVisitante;
-	
+	private boolean resultado;
+	public Partido() {
+		resultado = false;
+	}
 	public String getFecha() {
 		return fecha;
 	}
@@ -57,5 +60,13 @@ public class Partido {
 			this.equipoVisitante.actualizarResultadoPartido(numJornada, "Empató");
 			this.equipoLocal.actualizarResultadoPartido(numJornada, "Empató");
 		}
+	}
+	public void setResultado(boolean b) {
+		this.resultado =b;
+		
+	}
+	public boolean getResultado() {
+		// TODO Auto-generated method stub
+		return this.resultado;
 	}
 }

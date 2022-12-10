@@ -89,6 +89,7 @@ public class PanelUsuarioSuperior extends JPanel implements ActionListener{
 		centro.add(venderJugador);
 		centro.add(venderJugador);
 		centro.add(crearEquipo);
+		centro.add(borrarEquipo);
 		centro.add(cerrarSesion);
 		
 		add(centro, BorderLayout.CENTER);
@@ -112,6 +113,7 @@ public class PanelUsuarioSuperior extends JPanel implements ActionListener{
 		}
 		else if (evento.equals(BORRAR)) {
 			this.padre.borrarEquipo();
+			actualizarListaEquipos();
 		}
 		else if (evento.equals(SELECCION)) {
 			this.padre.setEquipoSeleccionado((EquipoFantasia)comboEquipo.getSelectedItem());

@@ -1,5 +1,6 @@
 package Interfaz;
 
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 
@@ -27,8 +28,11 @@ public class PanelAdminCentro extends JPanel {
 		padre = papa;
 		
 		tfArchivoPartidos = new JTextField("");
+		tfArchivoPartidos.setPreferredSize(new Dimension(500,30));
 		tfArchivoInfoJugadores= new JTextField("");
+		tfArchivoInfoJugadores.setPreferredSize(new Dimension(500,30));
 		tfArchivoDatosPartido= new JTextField("");
+		tfArchivoDatosPartido.setPreferredSize(new Dimension(500,30));
 		
 		etiquetaArchivoPartidos= new JLabel("Ingrese el filePath de los partidos de la temporada:");
 		etiquetaArchivoInfoJugadores= new JLabel("Ingrese el filePath con la informacion de los "

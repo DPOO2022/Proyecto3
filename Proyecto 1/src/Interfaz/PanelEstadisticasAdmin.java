@@ -1,11 +1,13 @@
 package Interfaz;
 
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class PanelEstadisticasAdmin extends JPanel implements ActionListener{
 	private static final String EQUIPOS = "EQUIPOS";
@@ -14,9 +16,14 @@ public class PanelEstadisticasAdmin extends JPanel implements ActionListener{
 	private JButton btnEstComparacionRankEquipos;
 	private JButton btnPuntosJugadoresEquipo;
 	private JButton btnEstJugadoresMasPuntosUnEquipo;
+	private JTextField txtRanking;
 	private VentanaEstadisticaAdmin padre;
 	public PanelEstadisticasAdmin(VentanaEstadisticaAdmin papa) {
 		padre = papa;
+		
+		txtRanking = new JTextField("");
+		txtRanking.setEditable(true);
+		txtRanking.setPreferredSize(new Dimension(170,30));
 		
 		btnEstComparacionRankEquipos = new JButton("Comparacion Entre los mejores equipos");
 		btnEstComparacionRankEquipos.setActionCommand(EQUIPOS);
@@ -32,6 +39,7 @@ public class PanelEstadisticasAdmin extends JPanel implements ActionListener{
 		
 		setLayout(new FlowLayout());
 		
+		add(txtRanking);
 		add(btnEstComparacionRankEquipos);
 		add(btnPuntosJugadoresEquipo);
 		add(btnEstJugadoresMasPuntosUnEquipo);
@@ -40,10 +48,10 @@ public class PanelEstadisticasAdmin extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		String evento = e.getActionCommand();
 		if(evento.equals(EQUIPOS)) {
-			this.padre.mostrarComparacionRankEquipos();
+			this.padre.mostrarComparacionRankEquipos(txtRanking.getText());
 		}
 		if(evento.equals(JUGADORES)) {
-			this.padre.mostrarJugadoresMayorAporte();
+			this.padre.mostrarJugadoresMayorAporte(txtRanking.getText());
 		}
 		//if(evento.equals(JEQUIPO)) {
 		//	this.padre.mostrarJ();
