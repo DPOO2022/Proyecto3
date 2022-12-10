@@ -156,6 +156,9 @@ public class InterfazPrincipal extends JFrame{
 		else if (resp== 4) {
     		JOptionPane.showMessageDialog(this, "No sé puede modificar el equipo en esta fecha, intente de nuevo el día siguiente al último partido de la jornada.","Error",JOptionPane.ERROR_MESSAGE);
 		}
+		else if (resp== 5) {
+    		JOptionPane.showMessageDialog(this, "No se ha seleccionado/creado ningún equipo","Error",JOptionPane.ERROR_MESSAGE);
+		}
 		return resp;
 	}
 	public int cambiarCapitan(ArrayList<String> seleccion) {
@@ -163,14 +166,17 @@ public class InterfazPrincipal extends JFrame{
 		if(resp == 1) {
 			JOptionPane.showMessageDialog(this, "Seleccione solo 1 jugador","Error",JOptionPane.ERROR_MESSAGE);
 		}
-		if(resp == 2) {
+		else if(resp == 2) {
 			JOptionPane.showMessageDialog(this, "El jugador debe ser parte de la nomina titular.","Error",JOptionPane.ERROR_MESSAGE);
 		}
-		if (resp == 0) {
+		else if (resp == 0) {
 			JOptionPane.showMessageDialog(this, "Se ha realizado el cambio","",JOptionPane.INFORMATION_MESSAGE);
 		}
 		else if (resp== 3) {
     		JOptionPane.showMessageDialog(this, "No sé puede modificar el equipo en esta fecha, intente de nuevo el día siguiente al último partido de la jornada.","Error",JOptionPane.ERROR_MESSAGE);
+		}
+		else if (resp== 4) {
+    		JOptionPane.showMessageDialog(this, "No se ha seleccionado/creado ningún equipo","Error",JOptionPane.ERROR_MESSAGE);
 		}
 		return resp;
 	}
@@ -196,6 +202,9 @@ public class InterfazPrincipal extends JFrame{
 		if (resp == 0) {
 			JOptionPane.showMessageDialog(this, "Los resultados se cargaron correctamente","",JOptionPane.INFORMATION_MESSAGE);
 		}
+		else if (resp == 1) {
+			JOptionPane.showMessageDialog(this, "Los archivos seleccionados no existen, por favor revise que las rutas sean correctas","Error",JOptionPane.ERROR_MESSAGE);
+		}
 		return resp;
 	}
 	public int venderJugador(ArrayList<String>seleccion) {
@@ -212,13 +221,21 @@ public class InterfazPrincipal extends JFrame{
 		else if (resp== 4) {
     		JOptionPane.showMessageDialog(this, "No sé puede modificar el equipo en esta fecha, intente de nuevo el día siguiente al último partido de la jornada.","Error",JOptionPane.ERROR_MESSAGE);
 		}
+		else if (resp== 5) {
+    		JOptionPane.showMessageDialog(this, "No se ha seleccionado/creado ningún equipo","Error",JOptionPane.ERROR_MESSAGE);
+		}
 		return resp;
 	}
 	public void abrirComprarJugador() {
 		vComprar = new VentanaComprar(this);
 	}
 	public void verEtadisticas() {
-		vEstadisticas = new VentanaEstadisticas(this);
+		if (((Participante)this.app.getUsuarioActivo()).getEquipoActivo()!= null) {
+			vEstadisticas = new VentanaEstadisticas(this);
+		}
+		else {
+			JOptionPane.showMessageDialog(this, "No se ha seleccionado/creado ningún equipo","Error",JOptionPane.ERROR_MESSAGE);
+		}
 	}
 	public void comprarJugador(ArrayList<Jugador> jugadoresComprar) {
 		int resp = this.app.comprarJugadorV2(jugadoresComprar);
@@ -262,6 +279,9 @@ public class InterfazPrincipal extends JFrame{
     	else if (resp== 11) {
     		JOptionPane.showMessageDialog(this, "El Jugador seleccionado ya hace parte de su equipo, por favor seleccione otro","Error",JOptionPane.ERROR_MESSAGE);
 		}
+    	else if (resp== 12) {
+    		JOptionPane.showMessageDialog(this, "No se ha seleccionado/creado ningún equipo","Error",JOptionPane.ERROR_MESSAGE);
+		}
 	}
 	public void mostrarEstadisticasEquipo() {
 		this.vEstEquipo = new VentanaEstadisticaEquipo(this, ((Participante)this.app.getUsuarioActivo()).getEquipoActivo());
@@ -285,8 +305,13 @@ public class InterfazPrincipal extends JFrame{
 		this.temporadaConfigurada = false;
 	}
 	public void borrarEquipo() {
-		this.app.borrarEquipo();
-		JOptionPane.showMessageDialog(this, "Su equipo se ha eliminado.","",JOptionPane.INFORMATION_MESSAGE);
+		int resp = this.app.borrarEquipo();
+		if (resp == 0) {
+			JOptionPane.showMessageDialog(this, "Su equipo se ha eliminado.","",JOptionPane.INFORMATION_MESSAGE);
+		}
+		else if (resp== 1) {
+    		JOptionPane.showMessageDialog(this, "No se ha seleccionado/creado ningún equipo","Error",JOptionPane.ERROR_MESSAGE);
+		}
 		//this.vUsuario.dispose();
 		//this.vCrear = new VentanaCrearEquipo(this);
 	}

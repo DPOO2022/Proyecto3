@@ -236,6 +236,7 @@ public class Aplicacion {
 	}
 	public int borrarEquipo() {
 		int resp = ((Participante)this.usuarioActivo).borrarEquipo();
+		this.setEquipoSeleccionado(null);
 		loader.guardarParticipantes(participantes);
 		return resp;
 	}
@@ -309,127 +310,130 @@ public class Aplicacion {
 		Partido datosPartido = this.loader.cargarResultadoPartido(resultadoPartido);
 		Jugador jugadorResultado;
 		Jugador jugadorLista;
+		int resp = 1;
 		int numJornada = datosPartido.getNumeroJornada();
-		for (int i = 0; i<datosPartido.getEquipoLocal().getJugadores().size();i++) {
-			jugadorResultado = datosPartido.getEquipoLocal().getJugadores().get(i);
-			for (int j = 0; j<this.temporadaActual.getJugadores().size();j++) {
-				jugadorLista = this.temporadaActual.getJugadores().get(j);
-				if(jugadorLista.getNombre().equals(jugadorResultado.getNombre())&&jugadorLista.getPosicion().equals(jugadorResultado.getPosicion())) {
-					jugadorLista.getMinutosJugadosJornada().add(numJornada-1, jugadorResultado.getMinutosJugados());
-					jugadorLista.getMinutoInicioJornada().add(numJornada-1, jugadorResultado.getMinutoInicio());
-					jugadorLista.getMinutoSustitucionJornada().add(numJornada-1, jugadorResultado.getMinutoSustitucion());
-					jugadorLista.getGolesAnotadosJornada().add(numJornada-1, jugadorResultado.getGolesAnotados());
-					jugadorLista.getAutogolesJornada().add(numJornada-1, jugadorResultado.getAutogoles());
-					jugadorLista.getAsistenciasJornada().add(numJornada-1, jugadorResultado.getAsistencias());
-					jugadorLista.getPenaltisErradosJornada().add(numJornada-1, jugadorResultado.getPenaltisErrados());
-					jugadorLista.getAmarillasJornada().add(numJornada-1, jugadorResultado.getAmarillas());
-					jugadorLista.getRojasJornada().add(numJornada-1, jugadorResultado.getRojas());
-					jugadorLista.getManosJornada().add(numJornada-1, jugadorResultado.getManos());
-					jugadorLista.getTirosLibresCobradosJornada().add(numJornada-1, jugadorResultado.getTirosLibresCobrados());
-					jugadorLista.getTirosLibresAnotadosJornada().add(numJornada-1, jugadorResultado.getTirosLibresAnotados());
-					if(jugadorResultado.getPosicion().equals("arquero")) {
-						Arquero arqueroResultado = (Arquero)jugadorResultado;
-						Arquero arqueroLista = (Arquero)jugadorLista;
-						arqueroLista.getGolesRecibidosJornada().add(numJornada-1, arqueroResultado.getGolesRecibidos());
-						arqueroLista.getPenaltisAtajadosJornada().add(numJornada-1, arqueroResultado.getPenaltisAtajados());
-						
+		if (resultadoPartido.exists()){
+			for (int i = 0; i<datosPartido.getEquipoLocal().getJugadores().size();i++) {
+				jugadorResultado = datosPartido.getEquipoLocal().getJugadores().get(i);
+				for (int j = 0; j<this.temporadaActual.getJugadores().size();j++) {
+					jugadorLista = this.temporadaActual.getJugadores().get(j);
+					if(jugadorLista.getNombre().equals(jugadorResultado.getNombre())&&jugadorLista.getPosicion().equals(jugadorResultado.getPosicion())) {
+						jugadorLista.getMinutosJugadosJornada().add(numJornada-1, jugadorResultado.getMinutosJugados());
+						jugadorLista.getMinutoInicioJornada().add(numJornada-1, jugadorResultado.getMinutoInicio());
+						jugadorLista.getMinutoSustitucionJornada().add(numJornada-1, jugadorResultado.getMinutoSustitucion());
+						jugadorLista.getGolesAnotadosJornada().add(numJornada-1, jugadorResultado.getGolesAnotados());
+						jugadorLista.getAutogolesJornada().add(numJornada-1, jugadorResultado.getAutogoles());
+						jugadorLista.getAsistenciasJornada().add(numJornada-1, jugadorResultado.getAsistencias());
+						jugadorLista.getPenaltisErradosJornada().add(numJornada-1, jugadorResultado.getPenaltisErrados());
+						jugadorLista.getAmarillasJornada().add(numJornada-1, jugadorResultado.getAmarillas());
+						jugadorLista.getRojasJornada().add(numJornada-1, jugadorResultado.getRojas());
+						jugadorLista.getManosJornada().add(numJornada-1, jugadorResultado.getManos());
+						jugadorLista.getTirosLibresCobradosJornada().add(numJornada-1, jugadorResultado.getTirosLibresCobrados());
+						jugadorLista.getTirosLibresAnotadosJornada().add(numJornada-1, jugadorResultado.getTirosLibresAnotados());
+						if(jugadorResultado.getPosicion().equals("arquero")) {
+							Arquero arqueroResultado = (Arquero)jugadorResultado;
+							Arquero arqueroLista = (Arquero)jugadorLista;
+							arqueroLista.getGolesRecibidosJornada().add(numJornada-1, arqueroResultado.getGolesRecibidos());
+							arqueroLista.getPenaltisAtajadosJornada().add(numJornada-1, arqueroResultado.getPenaltisAtajados());
+							
+						}
+						if(jugadorResultado.getPosicion().equals("defensa")) {
+							Defensa defensaResultado = (Defensa)jugadorResultado;
+							Defensa defensaLista = (Defensa)jugadorLista;
+							defensaLista.getGolesRecibidosJornada().add(numJornada-1, defensaResultado.getGolesRecibidos());
+						}
+						if(datosPartido.getGolesLocal()>datosPartido.getGolesVisitante()) {
+							jugadorLista.getResultadoPartidoJornada().add(numJornada-1, "Ganó");
+						}
+						else if(datosPartido.getGolesLocal()==datosPartido.getGolesVisitante()) {
+							jugadorLista.getResultadoPartidoJornada().add(numJornada-1, "Empató");
+						}
+						else if(datosPartido.getGolesLocal()<datosPartido.getGolesVisitante()) {
+							jugadorLista.getResultadoPartidoJornada().add(numJornada-1, "Perdió");
+						}
 					}
-					if(jugadorResultado.getPosicion().equals("defensa")) {
-						Defensa defensaResultado = (Defensa)jugadorResultado;
-						Defensa defensaLista = (Defensa)jugadorLista;
-						defensaLista.getGolesRecibidosJornada().add(numJornada-1, defensaResultado.getGolesRecibidos());
-					}
-					if(datosPartido.getGolesLocal()>datosPartido.getGolesVisitante()) {
-						jugadorLista.getResultadoPartidoJornada().add(numJornada-1, "Ganó");
-					}
-					else if(datosPartido.getGolesLocal()==datosPartido.getGolesVisitante()) {
-						jugadorLista.getResultadoPartidoJornada().add(numJornada-1, "Empató");
-					}
-					else if(datosPartido.getGolesLocal()<datosPartido.getGolesVisitante()) {
-						jugadorLista.getResultadoPartidoJornada().add(numJornada-1, "Perdió");
-					}
-				}
-			} 
-		}
-		for (int i = 0; i<datosPartido.getEquipoVisitante().getJugadores().size();i++) {
-			jugadorResultado = datosPartido.getEquipoVisitante().getJugadores().get(i);
-			for (int j = 0; j<this.temporadaActual.getJugadores().size();j++) {
-				jugadorLista = this.temporadaActual.getJugadores().get(j);
-				if(jugadorLista.getNombre().equals(jugadorResultado.getNombre())&&jugadorLista.getPosicion().equals(jugadorResultado.getPosicion())) {
-					jugadorLista.getMinutosJugadosJornada().add(numJornada-1, jugadorResultado.getMinutosJugados());
-					jugadorLista.getMinutoInicioJornada().add(numJornada-1, jugadorResultado.getMinutoInicio());
-					jugadorLista.getMinutoSustitucionJornada().add(numJornada-1, jugadorResultado.getMinutoSustitucion());
-					jugadorLista.getGolesAnotadosJornada().add(numJornada-1, jugadorResultado.getGolesAnotados());
-					jugadorLista.getAutogolesJornada().add(numJornada-1, jugadorResultado.getAutogoles());
-					jugadorLista.getAsistenciasJornada().add(numJornada-1, jugadorResultado.getAsistencias());
-					jugadorLista.getPenaltisErradosJornada().add(numJornada-1, jugadorResultado.getPenaltisErrados());
-					jugadorLista.getAmarillasJornada().add(numJornada-1, jugadorResultado.getAmarillas());
-					jugadorLista.getRojasJornada().add(numJornada-1, jugadorResultado.getRojas());
-					jugadorLista.getManosJornada().add(numJornada-1, jugadorResultado.getManos());
-					jugadorLista.getTirosLibresCobradosJornada().add(numJornada-1, jugadorResultado.getTirosLibresCobrados());
-					jugadorLista.getTirosLibresAnotadosJornada().add(numJornada-1, jugadorResultado.getTirosLibresAnotados());
-					if(jugadorResultado.getPosicion().equals("arquero")) {
-						Arquero arqueroResultado = (Arquero)jugadorResultado;
-						Arquero arqueroLista = (Arquero)jugadorLista;
-						arqueroLista.getGolesRecibidosJornada().add(numJornada-1, arqueroResultado.getGolesRecibidos());
-						arqueroLista.getPenaltisAtajadosJornada().add(numJornada-1, arqueroResultado.getPenaltisAtajados());
-						
-					}
-					if(jugadorResultado.getPosicion().equals("defensa")) {
-						Defensa defensaResultado = (Defensa)jugadorResultado;
-						Defensa defensaLista = (Defensa)jugadorLista;
-						defensaLista.getGolesRecibidosJornada().add(numJornada-1, defensaResultado.getGolesRecibidos());
-					}
-					if(datosPartido.getGolesLocal()<datosPartido.getGolesVisitante()) {
-						jugadorLista.getResultadoPartidoJornada().add(numJornada-1, "Ganó");
-					}
-					else if(datosPartido.getGolesLocal()==datosPartido.getGolesVisitante()) {
-						jugadorLista.getResultadoPartidoJornada().add(numJornada-1, "Empató");
-					}
-					else if(datosPartido.getGolesLocal()>datosPartido.getGolesVisitante()) {
-						jugadorLista.getResultadoPartidoJornada().add(numJornada-1, "Perdió");
-					}
-				}
-			} 
-		}
-		Jornada jornada = new Jornada();
-		Partido partido = new Partido();
-		Partido partido2 = new Partido();
-		int resultados = 0;
-		for(int i = 0; i<this.temporadaActual.getJornadas().size();i++) {
-			jornada = temporadaActual.getJornadas().get(i);
-			if (jornada.getNumeroJornada()==numJornada) {
-				for (int j = 0; j<jornada.getPartidos().size();j++) {
-					partido = jornada.getPartidos().get(j);
-					if(partido.getEquipoLocal().getNombre().equals(datosPartido.getEquipoLocal().getNombre())&&partido.getEquipoVisitante().getNombre().equals(datosPartido.getEquipoVisitante().getNombre())) {
-						partido.setGolesLocal(datosPartido.getGolesLocal());
-						partido.setGolesVisitante(datosPartido.getGolesVisitante());
-						partido2 = partido;
-						partido.setResultado(true);
-					}
-					if(partido.getResultado() == false) {
-						resultados = 1;
-					}
-				}
-				if (resultados == 0) {
-					jornada.setResultado(true);
-				}
-				break;
+				} 
 			}
+			for (int i = 0; i<datosPartido.getEquipoVisitante().getJugadores().size();i++) {
+				jugadorResultado = datosPartido.getEquipoVisitante().getJugadores().get(i);
+				for (int j = 0; j<this.temporadaActual.getJugadores().size();j++) {
+					jugadorLista = this.temporadaActual.getJugadores().get(j);
+					if(jugadorLista.getNombre().equals(jugadorResultado.getNombre())&&jugadorLista.getPosicion().equals(jugadorResultado.getPosicion())) {
+						jugadorLista.getMinutosJugadosJornada().add(numJornada-1, jugadorResultado.getMinutosJugados());
+						jugadorLista.getMinutoInicioJornada().add(numJornada-1, jugadorResultado.getMinutoInicio());
+						jugadorLista.getMinutoSustitucionJornada().add(numJornada-1, jugadorResultado.getMinutoSustitucion());
+						jugadorLista.getGolesAnotadosJornada().add(numJornada-1, jugadorResultado.getGolesAnotados());
+						jugadorLista.getAutogolesJornada().add(numJornada-1, jugadorResultado.getAutogoles());
+						jugadorLista.getAsistenciasJornada().add(numJornada-1, jugadorResultado.getAsistencias());
+						jugadorLista.getPenaltisErradosJornada().add(numJornada-1, jugadorResultado.getPenaltisErrados());
+						jugadorLista.getAmarillasJornada().add(numJornada-1, jugadorResultado.getAmarillas());
+						jugadorLista.getRojasJornada().add(numJornada-1, jugadorResultado.getRojas());
+						jugadorLista.getManosJornada().add(numJornada-1, jugadorResultado.getManos());
+						jugadorLista.getTirosLibresCobradosJornada().add(numJornada-1, jugadorResultado.getTirosLibresCobrados());
+						jugadorLista.getTirosLibresAnotadosJornada().add(numJornada-1, jugadorResultado.getTirosLibresAnotados());
+						if(jugadorResultado.getPosicion().equals("arquero")) {
+							Arquero arqueroResultado = (Arquero)jugadorResultado;
+							Arquero arqueroLista = (Arquero)jugadorLista;
+							arqueroLista.getGolesRecibidosJornada().add(numJornada-1, arqueroResultado.getGolesRecibidos());
+							arqueroLista.getPenaltisAtajadosJornada().add(numJornada-1, arqueroResultado.getPenaltisAtajados());
+							
+						}
+						if(jugadorResultado.getPosicion().equals("defensa")) {
+							Defensa defensaResultado = (Defensa)jugadorResultado;
+							Defensa defensaLista = (Defensa)jugadorLista;
+							defensaLista.getGolesRecibidosJornada().add(numJornada-1, defensaResultado.getGolesRecibidos());
+						}
+						if(datosPartido.getGolesLocal()<datosPartido.getGolesVisitante()) {
+							jugadorLista.getResultadoPartidoJornada().add(numJornada-1, "Ganó");
+						}
+						else if(datosPartido.getGolesLocal()==datosPartido.getGolesVisitante()) {
+							jugadorLista.getResultadoPartidoJornada().add(numJornada-1, "Empató");
+						}
+						else if(datosPartido.getGolesLocal()>datosPartido.getGolesVisitante()) {
+							jugadorLista.getResultadoPartidoJornada().add(numJornada-1, "Perdió");
+						}
+					}
+				} 
+			}
+			Jornada jornada = new Jornada();
+			Partido partido = new Partido();
+			Partido partido2 = new Partido();
+			int resultados = 0;
+			for(int i = 0; i<this.temporadaActual.getJornadas().size();i++) {
+				jornada = temporadaActual.getJornadas().get(i);
+				if (jornada.getNumeroJornada()==numJornada) {
+					for (int j = 0; j<jornada.getPartidos().size();j++) {
+						partido = jornada.getPartidos().get(j);
+						if(partido.getEquipoLocal().getNombre().equals(datosPartido.getEquipoLocal().getNombre())&&partido.getEquipoVisitante().getNombre().equals(datosPartido.getEquipoVisitante().getNombre())) {
+							partido.setGolesLocal(datosPartido.getGolesLocal());
+							partido.setGolesVisitante(datosPartido.getGolesVisitante());
+							partido2 = partido;
+							partido.setResultado(true);
+						}
+						if(partido.getResultado() == false) {
+							resultados = 1;
+						}
+					}
+					if (resultados == 0) {
+						jornada.setResultado(true);
+					}
+					break;
+				}
+			}
+			partido2.actualizarResultadoPartido(numJornada);
+			
+			actualizarPuntosEquipos(numJornada);
+			actualizarRankingEquiposJornada(numJornada);
+			actualizarRankingJugadoresJornada(numJornada);
+			actualizarRankingEquipos();
+			actualizarRankingJugadores();
+			
+			loader.guardarJornadas(this.temporadaActual.getJornadas());
+			loader.guardarJugadores(this.temporadaActual.getJugadores());
+			loader.guardarParticipantes(this.participantes);
+			resp = 0;
 		}
-		partido2.actualizarResultadoPartido(numJornada);
-		
-		actualizarPuntosEquipos(numJornada);
-		actualizarRankingEquiposJornada(numJornada);
-		actualizarRankingJugadoresJornada(numJornada);
-		actualizarRankingEquipos();
-		actualizarRankingJugadores();
-		
-		loader.guardarJornadas(this.temporadaActual.getJornadas());
-		loader.guardarJugadores(this.temporadaActual.getJugadores());
-		loader.guardarParticipantes(this.participantes);
-		
-		return 0;
+		return resp;
 	}
 	public void actualizarPuntosEquipos(int numJornada) {
 		ArrayList<EquipoFantasia> equipos = crearArrayEquipos();
@@ -548,10 +552,13 @@ public class Aplicacion {
 			resp = 8;
 			boolean modificar = permitirModificar();
 			if (modificar) {
-				resp = ((Participante)this.getUsuarioActivo()).getEquipoActivo().comprarJugador(jugadoresComprar.get(0));	
-				if(resp == 0) {
-					((Participante)this.getUsuarioActivo()).getEquipoActivo().getSuplentes().add(jugadoresComprar.get(0));
-					loader.guardarParticipantes(participantes);
+				resp =12;
+				if(((Participante)this.getUsuarioActivo()).getEquipoActivo()!= null) {
+					resp = ((Participante)this.getUsuarioActivo()).getEquipoActivo().comprarJugador(jugadoresComprar.get(0));	
+					if(resp == 0) {
+						((Participante)this.getUsuarioActivo()).getEquipoActivo().getSuplentes().add(jugadoresComprar.get(0));
+						loader.guardarParticipantes(participantes);
+					}
 				}
 			}
 		}

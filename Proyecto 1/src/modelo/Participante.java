@@ -60,9 +60,13 @@ public class Participante extends Usuario{
 		return resp;
 	}
 	public int borrarEquipo() {
-		this.equipos.remove(this.equipoActivo);
-		this.equipoActivo=null;
-		return 1;
+		int resp = 1;
+		if(this.equipoActivo != null) {
+			this.equipos.remove(this.equipoActivo);
+			this.equipoActivo=null;
+			resp =0;
+		}
+		return resp;
 	}
 	public void setEquipoActivo(EquipoFantasia equipo) {
 		equipoActivo = equipo;
@@ -74,15 +78,24 @@ public class Participante extends Usuario{
 		this.equipoActivo.cambiarEquipo(nuevoCapitan);
 	}
 	public int modificarAlineacionV2(ArrayList<String> jugadoresCambiar) {
-		int resp = this.equipoActivo.cambiarAlineacionV2(jugadoresCambiar);
+		int resp =5;
+		if(equipoActivo != null) {
+			resp = this.equipoActivo.cambiarAlineacionV2(jugadoresCambiar);
+		}
 		return resp;
 	}
 	public int cambiarCapitanV2(ArrayList<String> nuevoCapitan) {
-		int resp = this.equipoActivo.cambiarCapitanV2(nuevoCapitan);
+		int resp =4;
+		if(equipoActivo != null) {
+			resp = this.equipoActivo.cambiarCapitanV2(nuevoCapitan);
+		}
 		return resp;
 	}
 	public int venderJugadorV2(ArrayList<String> seleccion) {
-		int resp = this.equipoActivo.quitarJugadorV2(seleccion);
+		int resp =5;
+		if(equipoActivo != null) {
+			resp = this.equipoActivo.quitarJugadorV2(seleccion);
+		}
 		return resp;
 	}
 	public void organizarJugadores() {
