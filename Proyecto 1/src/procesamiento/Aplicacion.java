@@ -434,12 +434,21 @@ public class Aplicacion {
 	public void actualizarPuntosEquipos(int numJornada) {
 		ArrayList<EquipoFantasia> equipos = crearArrayEquipos();
 		EquipoFantasia equipo = new EquipoFantasia();
+		EquipoFantasia mejor = new EquipoFantasia();
 		for (int i = 0; i < equipos.size();i++) {
 			equipo = equipos.get(i);
+			if (i == 0) {
+				mejor = equipo;
+			}
 			if (equipo!=null) {
 				equipo.actualizarPuntosJornada(numJornada);
+				if(mejor.getPuntosJornada().get(numJornada -1)<equipo.getPuntosJornada().get(numJornada-1)) {
+					mejor = equipo;
+				}
 			}
 		}
+		Double puntosActuales = mejor.getPuntosJornada().get(numJornada-1);
+		mejor.getPuntosJornada().set(numJornada-1, puntosActuales+10);
 	}
 	public void actualizarRankingEquiposJornada(int numJornada) {
 		ArrayList<EquipoFantasia> equipos = crearArrayEquipos();

@@ -70,33 +70,6 @@ public class Participante extends Usuario{
 	public EquipoFantasia getEquipoActivo() {
 		return this.equipoActivo;
 	}
-	
-//	public int venderJugador(int numJugador) {
-//		int resp;
-//		try {
-//			Jugador jugador = this.equipo.getJugadores().get(numJugador-1);
-//			resp = equipo.quitarJugador(numJugador);
-//			presupuesto+= 0.97*(jugador.getPrecio());
-//		}catch(Exception ex) {
-//			resp = 1;
-//		}
-//		return resp;
-//	}
-		
-//	
-//	public int modificarAlineacion(int nuevoTitular, int nuevoSuplente) {
-//		int resp = this.equipo.cambiarAlineacion(nuevoTitular, nuevoSuplente);
-//		return resp;
-//	}
-//	public double consultarPuntajesEquipo() {
-//		return this.equipo.getPuntosTotales();
-//	}
-//	public double consultarPuntajeJugador(Jugador jugador) {
-//		return jugador.getPuntosTotales();
-//	}
-//	public void setEquipoFantasia(EquipoFantasia equipo) {
-//		this.equipo = equipo;
-//	}
 	public void cambiarCapitan(int nuevoCapitan) {
 		this.equipoActivo.cambiarEquipo(nuevoCapitan);
 	}
