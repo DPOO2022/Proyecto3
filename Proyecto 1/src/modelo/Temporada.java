@@ -118,10 +118,11 @@ public class Temporada {
 	}
 
 	public JFreeChart graficoPuntosJugadoresEquipo(int nRanking) {
-		ArrayList<Jugador> jugadores = rankingEquiposFantasia.get(nRanking-1).getJugadores();
+		
 		if(nRanking>rankingEquiposFantasia.size()) {
 			nRanking = rankingEquiposFantasia.size();
 		}
+		ArrayList<Jugador> jugadores = rankingEquiposFantasia.get(nRanking-1).getJugadores();
 		DefaultCategoryDataset dts = new DefaultCategoryDataset();
 		
 		for (int i = 0; i<jugadores.size(); i++)
@@ -131,17 +132,17 @@ public class Temporada {
 		return chart;
 	}
 	public JFreeChart graficoJugadoresMasPuntosUnEquipo(int nRanking) {
+		if(nRanking>rankingEquiposFantasia.size()) {
+			nRanking = rankingEquiposFantasia.size();
+		}
 		ArrayList<Jugador> jugadores = rankingEquiposFantasia.get(nRanking-1).getJugadores();
 		
 		DefaultCategoryDataset dts = new DefaultCategoryDataset();
 		
-		if(nRanking>rankingEquiposFantasia.size()) {
-			nRanking = rankingEquiposFantasia.size();
-		}
-		for (int i=0; i<nRanking;i++) {
+		for (int i=0; i<jugadores.size();i++) {
 			Jugador jugador= jugadores.get(i);
 			double contador = 0;
-			for (int j=0; j<jugadores.size(); j++) {
+			for (int j=0; j<jornadas.size(); j++) {
 				if(this.jornadas.get(j).getResultado()==true) {
 					contador += jugador.getPuntosJornada().get(j);
 					dts.addValue(contador,jugador.getNombre(),""+(j+1));
@@ -151,5 +152,18 @@ public class Temporada {
 		JFreeChart graficoLineasJugadoresEquipo = ChartFactory.createLineChart("Evolucion de los jugadores de un equipo"
 				, "Jornadas" , "Puntos" , dts, PlotOrientation.VERTICAL, true, false, false);
 		return graficoLineasJugadoresEquipo;
+	}
+	public JFreeChart graficaVPlantilla(int nRanking) {
+		if(nRanking>rankingEquiposFantasia.size()) {
+			nRanking = rankingEquiposFantasia.size();
+		}
+		
+		DefaultCategoryDataset dts = new DefaultCategoryDataset();
+		
+		for (int i = 0; i<nRanking; i++)
+			  dts.addValue(rankingEquiposFantasia.get(i).getVPlantilla(), "Valor Plantilla", Integer.toString(i+1));
+
+		JFreeChart chart = ChartFactory.createBarChart("Valor de la plantilla mejores equipos" , "Posición Ranking Temporada" , "Valor" , dts);
+		return chart;
 	}
 }

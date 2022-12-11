@@ -7,6 +7,7 @@ public class EquipoFantasia {
 	private String nombre;
 	private double puntosTotales;
 	private double presupuesto;
+	private double vplantilla;
 	private Jugador capitan;
 	private ArrayList<Double> puntosJornada;
 	private ArrayList<Jugador> jugadores;
@@ -78,14 +79,16 @@ public class EquipoFantasia {
 			puntos += 5; 
 		}
 		
-		this.puntosTotales += puntos;
+		
 		if (this.puntosJornada.size() >= numJornada) {
 			Double puntosActuales = this.puntosJornada.get(numJornada-1);
-			this.puntosJornada.set(numJornada-1, puntosActuales+puntos);
+			puntos+=puntosActuales;
+			this.puntosJornada.set(numJornada-1,puntos);
 		}
 		else {
 			this.puntosJornada.set(numJornada-1, puntos);
 		}
+		//this.puntosTotales += puntos;
 		this.organizarJugadores();
 	}
 	public ArrayList<Jugador> getJugadores() {
@@ -382,5 +385,27 @@ public class EquipoFantasia {
 	}
 	public void setPresupuesto(Double presupuesto2) {
 		this.presupuesto = presupuesto2;
+	}
+	public void setValorPlantilla(Double i) {
+		this.vplantilla = i;
+	}
+	public void calcularValorPlantilla() {
+		Jugador jugador;
+		Double valor=0.0;
+		for(int i = 0; i<this.jugadores.size();i++) {
+			jugador = this.jugadores.get(i);
+			valor += jugador.getPrecio();
+		}
+		this.vplantilla = valor;
+	}
+	public Double getVPlantilla() {
+		return this.vplantilla;
+	}
+	public void actualizarPuntosTotales() {
+		Double puntosTotales = 0.0;
+		for (int i = 0; i<this.puntosJornada.size();i++) {
+			puntosTotales+= this.puntosJornada.get(i);
+		}
+		this.puntosTotales = puntosTotales;
 	}
 }

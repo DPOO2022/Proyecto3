@@ -32,5 +32,8 @@ public class VentanaEstadisticaAdmin extends JFrame{
 	public void mostrarJugadoresMasPuntosUnEquipo(String ranking) {
 		this.padre.mostrarJugadoresMasPuntosUnEquipo(ranking);
 	}
+	public void graficaVPlantilla(String ranking) {
+		this.padre.graficaVPlantilla(ranking);
+	}
 	
 }

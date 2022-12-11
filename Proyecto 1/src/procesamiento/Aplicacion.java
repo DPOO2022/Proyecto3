@@ -446,6 +446,7 @@ public class Aplicacion {
 			}
 			if (equipo!=null) {
 				equipo.actualizarPuntosJornada(numJornada);
+				equipo.actualizarPuntosTotales();
 				if(mejor.getPuntosJornada().get(numJornada -1)<equipo.getPuntosJornada().get(numJornada-1)) {
 					mejor = equipo;
 				}
@@ -453,6 +454,8 @@ public class Aplicacion {
 		}
 		Double puntosActuales = mejor.getPuntosJornada().get(numJornada-1);
 		mejor.getPuntosJornada().set(numJornada-1, puntosActuales+10);
+		mejor.actualizarPuntosTotales();
+		//mejor.setPuntosTotales(mejor.getPuntosTotales()+10);
 	}
 	public void actualizarRankingEquiposJornada(int numJornada) {
 		ArrayList<EquipoFantasia> equipos = crearArrayEquipos();
@@ -552,13 +555,10 @@ public class Aplicacion {
 			resp = 8;
 			boolean modificar = permitirModificar();
 			if (modificar) {
-				resp =12;
-				if(((Participante)this.getUsuarioActivo()).getEquipoActivo()!= null) {
-					resp = ((Participante)this.getUsuarioActivo()).getEquipoActivo().comprarJugador(jugadoresComprar.get(0));	
-					if(resp == 0) {
-						((Participante)this.getUsuarioActivo()).getEquipoActivo().getSuplentes().add(jugadoresComprar.get(0));
-						loader.guardarParticipantes(participantes);
-					}
+				resp = ((Participante)this.getUsuarioActivo()).comprarJugador(jugadoresComprar.get(0));	
+				if(resp == 0) {
+					((Participante)this.getUsuarioActivo()).getEquipoActivo().getSuplentes().add(jugadoresComprar.get(0));
+					loader.guardarParticipantes(participantes);
 				}
 			}
 		}
@@ -582,6 +582,9 @@ public class Aplicacion {
 	}
 	public double getPresupuestoInicial() {
 		return this.presupuestoInicial;
+	}
+	public JFreeChart graficaVPlantilla(int numRanking) {
+		return temporadaActual.graficaVPlantilla(numRanking);
 	}
 	
 }

@@ -363,5 +363,16 @@ public class InterfazPrincipal extends JFrame{
 	public void setEquipoSeleccionado(EquipoFantasia equipo) {
 		this.app.setEquipoSeleccionado(equipo);
 	}
+
+	public void graficaVPlantilla(String ranking) {
+		try {
+			int numRanking = Integer.parseInt(ranking);
+			ChartFrame fr = new ChartFrame("Evolucion de los jugadores del equipo", app.graficaVPlantilla(numRanking));
+	        fr.pack();
+	        fr.setVisible(true);
+		}catch(Exception ex) {
+			JOptionPane.showMessageDialog(this, "Recuerde que debe ingresar un entero positivo en el campo de texto","",JOptionPane.INFORMATION_MESSAGE);
+		}
+	}
 	
 }

@@ -47,6 +47,7 @@ public class Participante extends Usuario{
 				if(resp == 0) {
 					equipoNuevo.iniciarPuntosJornada(numJornadas);
 					equipoNuevo.seleccionarAlineacionDefault();
+					equipoNuevo.calcularValorPlantilla();
 					if (this.equipos == null) {
 						this.equipos = new ArrayList<EquipoFantasia>();
 					}
@@ -95,6 +96,19 @@ public class Participante extends Usuario{
 		int resp =5;
 		if(equipoActivo != null) {
 			resp = this.equipoActivo.quitarJugadorV2(seleccion);
+			if(resp == 0) {
+				this.equipoActivo.calcularValorPlantilla();
+			}
+		}
+		return resp;
+	}
+	public int comprarJugador(Jugador jugador) {
+		int resp = 12;
+		if(equipoActivo != null) {
+			resp = this.equipoActivo.comprarJugador(jugador);
+			if(resp == 0) {
+				this.equipoActivo.calcularValorPlantilla();
+			}
 		}
 		return resp;
 	}

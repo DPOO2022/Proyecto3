@@ -38,11 +38,15 @@ public class Delantero extends Jugador{
 		if(this.minutosJugadosJornada.get(numJornada-1) > 60) {
 			puntos+= 2;
 		}
-		if(this.minutosJugadosJornada.size()>=3&&this.minutosJugadosJornada.get(numJornada-1) > 60 && this.minutosJugadosJornada.get(numJornada-2) > 60 && this.minutosJugadosJornada.get(numJornada-3) > 60) {
-			puntos+= 5;
+		if(this.minutosJugadosJornada.size()>=3) {
+			if(this.minutosJugadosJornada.get(numJornada-1) > 60 && this.minutosJugadosJornada.get(numJornada-2) > 60 && this.minutosJugadosJornada.get(numJornada-3) > 60) {
+				puntos+= 5;
+			}
 		}
-		if(this.golesAnotadosJornada.size()>=3&&this.golesAnotadosJornada.get(numJornada-1) > 1 && this.golesAnotadosJornada.get(numJornada-2) > 1 && this.golesAnotadosJornada.get(numJornada-3) > 1) {
-			puntos+= 10;
+		if(this.golesAnotadosJornada.size()>=3) {
+			if(this.golesAnotadosJornada.get(numJornada-1) > 1 && this.golesAnotadosJornada.get(numJornada-2) > 1 && this.golesAnotadosJornada.get(numJornada-3) > 1) {
+				puntos+= 10;
+			}
 		}
 		
 		if (this.puntosJornada == null) {

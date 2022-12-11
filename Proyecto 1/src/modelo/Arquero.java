@@ -41,11 +41,8 @@ public class Arquero extends Jugador{
 	}
 	public double calcularPuntaje(int numJornada) {
 		double puntos = 0;
-		try {
-		puntos += 5 * (double) this.golesAnotadosJornada.get(numJornada-1);}
-		catch(Exception ex) {
-			System.out.println(this.toString());
-		}
+		puntos += 5 * (double) this.golesAnotadosJornada.get(numJornada-1);
+		
 		puntos += 3 * (double) this.asistenciasJornada.get(numJornada-1);
 		puntos += -2 * (double) this.penaltisErradosJornada.get(numJornada-1);
 		puntos += -1 * (double) this.amarillasJornada.get(numJornada-1);
@@ -70,11 +67,15 @@ public class Arquero extends Jugador{
 		if(this.minutosJugadosJornada.get(numJornada-1) > 60) {
 			puntos += 2;
 		}
-		if(this.minutosJugadosJornada.size()>=3&&this.minutosJugadosJornada.get(numJornada-1) > 60 && this.minutosJugadosJornada.get(numJornada-2) > 60 && this.minutosJugadosJornada.get(numJornada-3) > 60) {
-			puntos+= 5;
+		if(this.minutosJugadosJornada.size()>=3) {
+			if(this.minutosJugadosJornada.get(numJornada-1) > 60 && this.minutosJugadosJornada.get(numJornada-2) > 60 && this.minutosJugadosJornada.get(numJornada-3) > 60) {
+				puntos+= 5;
+			}
 		}
-		if(this.golesAnotadosJornada.size()>=3&&this.golesAnotadosJornada.get(numJornada-1) > 1 && this.golesAnotadosJornada.get(numJornada-2) > 1 && this.golesAnotadosJornada.get(numJornada-3) > 1) {
-			puntos+= 10;
+		if(this.golesAnotadosJornada.size()>=3) {
+			if(this.golesAnotadosJornada.get(numJornada-1) > 1 && this.golesAnotadosJornada.get(numJornada-2) > 1 && this.golesAnotadosJornada.get(numJornada-3) > 1) {
+				puntos+= 10;
+			}
 		}
 		if (this.puntosJornada == null) {
 			this.puntosJornada = new ArrayList<Double>();
