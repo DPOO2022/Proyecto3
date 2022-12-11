@@ -346,6 +346,17 @@ public class InterfazPrincipal extends JFrame{
 		}
 		
 	}
+	public void mostrarJugadoresMasPuntosUnEquipo(String ranking) {
+		try {
+			int numRanking = Integer.parseInt(ranking);
+			ChartFrame fr = new ChartFrame("Evolucion de los jugadores del equipo", app.mostrarGraficoJugadoresMasPuntosUnEquipo(numRanking));
+	        fr.pack();
+	        fr.setVisible(true);
+		}catch(Exception ex) {
+			JOptionPane.showMessageDialog(this, "Recuerde que debe ingresar un entero positivo en el campo de texto","",JOptionPane.INFORMATION_MESSAGE);
+		}
+		
+	}
 	public void crearNuevoEquipo() {
 		this.vCrear = new VentanaCrearEquipo(this);
 	}

@@ -29,5 +29,8 @@ public class VentanaEstadisticaAdmin extends JFrame{
 	public void mostrarJugadoresMayorAporte(String ranking) {
 		this.padre.mostrarPuntosJugadoresEquipo(ranking);
 	}
+	public void mostrarJugadoresMasPuntosUnEquipo(String ranking) {
+		this.padre.mostrarJugadoresMasPuntosUnEquipo(ranking);
+	}
 	
 }

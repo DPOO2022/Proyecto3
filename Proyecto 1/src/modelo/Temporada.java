@@ -113,7 +113,7 @@ public class Temporada {
 			}
 		}
 		JFreeChart graficoLineas = ChartFactory.createLineChart("Evolucion de los mejores equipos"
-				, "Puntos" , "Jornadas" , dts, PlotOrientation.VERTICAL, true, false, false);
+				, "Jornadas" , "Puntos" , dts, PlotOrientation.VERTICAL, true, false, false);
 		return graficoLineas;
 	}
 
@@ -127,7 +127,29 @@ public class Temporada {
 		for (int i = 0; i<jugadores.size(); i++)
 			  dts.addValue(jugadores.get(i).getPuntosTotales(), "Puntos Totales", jugadores.get(i).getNombre());
 
-		JFreeChart chart = ChartFactory.createBarChart("Aporte de jugadores en la temporada" , "Puntos" , "Equipos" , dts);
+		JFreeChart chart = ChartFactory.createBarChart("Aporte de jugadores en la temporada" , "Jugadores" , "Puntos" , dts);
 		return chart;
+	}
+	public JFreeChart graficoJugadoresMasPuntosUnEquipo(int nRanking) {
+		ArrayList<Jugador> jugadores = rankingEquiposFantasia.get(nRanking-1).getJugadores();
+		
+		DefaultCategoryDataset dts = new DefaultCategoryDataset();
+		
+		if(nRanking>rankingEquiposFantasia.size()) {
+			nRanking = rankingEquiposFantasia.size();
+		}
+		for (int i=0; i<nRanking;i++) {
+			Jugador jugador= jugadores.get(i);
+			double contador = 0;
+			for (int j=0; j<jugadores.size(); j++) {
+				if(this.jornadas.get(j).getResultado()==true) {
+					contador += jugador.getPuntosJornada().get(j);
+					dts.addValue(contador,jugador.getNombre(),""+(j+1));
+				}
+			}
+		}
+		JFreeChart graficoLineasJugadoresEquipo = ChartFactory.createLineChart("Evolucion de los jugadores de un equipo"
+				, "Jornadas" , "Puntos" , dts, PlotOrientation.VERTICAL, true, false, false);
+		return graficoLineasJugadoresEquipo;
 	}
 }

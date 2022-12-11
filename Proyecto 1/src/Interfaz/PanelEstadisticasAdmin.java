@@ -33,7 +33,7 @@ public class PanelEstadisticasAdmin extends JPanel implements ActionListener{
 		btnPuntosJugadoresEquipo.setActionCommand(JUGADORES);
 		btnPuntosJugadoresEquipo.addActionListener(this);
 		
-		btnEstJugadoresMasPuntosUnEquipo = new JButton("Jugadores Mas Puntos en un equipo");
+		btnEstJugadoresMasPuntosUnEquipo = new JButton("Evolucion jugadores de un equipo");
 		btnEstJugadoresMasPuntosUnEquipo.setActionCommand(JEQUIPO);
 		btnEstJugadoresMasPuntosUnEquipo.addActionListener(this);
 		
@@ -53,9 +53,9 @@ public class PanelEstadisticasAdmin extends JPanel implements ActionListener{
 		if(evento.equals(JUGADORES)) {
 			this.padre.mostrarJugadoresMayorAporte(txtRanking.getText());
 		}
-		//if(evento.equals(JEQUIPO)) {
-		//	this.padre.mostrarJ();
-		//}
+		if(evento.equals(JEQUIPO)) {
+			this.padre.mostrarJugadoresMasPuntosUnEquipo(txtRanking.getText());
+		}
 	}
 }
 

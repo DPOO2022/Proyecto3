@@ -574,6 +574,9 @@ public class Aplicacion {
 	public JFreeChart mostrarGraficoPuntosJugadoresEquipo(int ranking) {
 		return temporadaActual.graficoPuntosJugadoresEquipo(ranking);
 	}
+	public JFreeChart mostrarGraficoJugadoresMasPuntosUnEquipo(int ranking) {
+		return temporadaActual.graficoJugadoresMasPuntosUnEquipo(ranking);
+	}
 	public void setEquipoSeleccionado(EquipoFantasia equipo) {
 		((Participante)this.usuarioActivo).setEquipoActivo(equipo);
 	}
